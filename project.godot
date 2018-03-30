@@ -14,6 +14,12 @@ config/name="gd-space-shooter"
 run/main_scene="res://Scenes/main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+window/stretch/shrink="0.75"
+
 [input]
 
 ui_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)

@@ -16,8 +16,10 @@ func _physics_process(delta):
 		rotate(-turn_amount)
 	if Input.is_action_pressed("ui_up"):
 		cur_speed = cur_speed + acceleration if cur_speed < max_speed else cur_speed
+		$main_turbine.emitting = true
 	else:
 		cur_speed = cur_speed - acceleration if cur_speed > 0 else 0
+		$main_turbine.emitting = false
 		
 	move_local_y(-cur_speed)
 	pass
