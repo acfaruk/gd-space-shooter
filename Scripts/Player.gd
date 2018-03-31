@@ -1,6 +1,7 @@
 extends Node2D
 
 var bullet_scene = preload("res://Scenes/Bullet.tscn")
+var meteor_scene = preload("res://Scenes/Meteor.tscn")
 
 export (float) var turn_amount = 0.05
 export (float) var max_speed = 4
@@ -33,9 +34,24 @@ func _physics_process(delta):
 		
 	move_local_y(-cur_speed)
 	
+	spawn_meteors()
+	
 func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.position = position
 	bullet.rotation = rotation
 	bullet.move_local_y(-25)
 	get_node("/root/Node").add_child(bullet)
+	
+func spawn_meteors():
+	var meteor = meteor_scene.instance()
+	
+	var min_distance = 1050
+	var dist = randi() % 200 + min_distance
+	var rot = randi() % 360
+	
+	meteor.position = $main_cam.position
+	meteor.rotation_degrees = rot
+	meteor.move_local_y(-dist)
+	print(meteor.position)
+	get_node("/root/Node").add_child(meteor)
