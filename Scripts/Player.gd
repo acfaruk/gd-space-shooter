@@ -34,4 +34,5 @@ func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.position = position
 	bullet.rotation = rotation
+	bullet.move_local_y(-25)
 	get_node("/root/Node").add_child(bullet)

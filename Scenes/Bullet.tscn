@@ -6,10 +6,10 @@
 
 [node name="Bullet" type="Node2D" index="0"]
 
-visible = false
 scale = Vector2( 0.4, 0.4 )
+z_index = -1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 speed = 10.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
