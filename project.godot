@@ -18,7 +18,7 @@ config/icon="res://icon.png"
 
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
-window/stretch/shrink="0.75"
+window/stretch/shrink="1"
 
 [input]
 

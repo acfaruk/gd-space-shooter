@@ -5,31 +5,31 @@
 [ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0.136095, 0.609467, 1 )
 colors = PoolColorArray( 0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0.0011998, 0.424805 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0.220703 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=4]
 
 flags = 4
 width = 2048
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -59,8 +59,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.3
 scale_random = 0.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -70,7 +70,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -103,10 +103,9 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 [node name="Player" type="Node2D" parent="." index="1"]
 
 position = Vector2( 521.101, 268.285 )
+scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+_sections_unfolded = [ "Transform" ]
 turn_amount = 0.05
 max_speed = 5.0
 acceleration = 0.1
@@ -128,7 +127,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 1 )
+process_material = SubResource( 5 )
 texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
