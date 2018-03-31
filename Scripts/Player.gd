@@ -24,9 +24,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up"):
 		cur_speed = cur_speed + acceleration if cur_speed < max_speed else cur_speed
 		$main_turbine.emitting = true
+		if (! $turbine_sound.playing):
+			$turbine_sound.play()
 	else:
 		cur_speed = max(cur_speed - acceleration / 2, 0)
 		$main_turbine.emitting = false
+		$turbine_sound.stop()
 		
 	move_local_y(-cur_speed)
 	

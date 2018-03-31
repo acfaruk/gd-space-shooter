@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/back.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=4]
+[ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Gradient" id=1]
 
@@ -70,7 +71,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
@@ -164,5 +165,15 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Transform" ]
+
+[node name="turbine_sound" type="AudioStreamPlayer2D" parent="Player" index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 
