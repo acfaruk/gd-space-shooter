@@ -58,6 +58,6 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 
 
