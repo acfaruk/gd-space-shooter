@@ -74,7 +74,7 @@ _sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
 
 [node name="main" type="Node" index="0"]
 
-[node name="prallax_back" type="ParallaxBackground" parent="." index="0"]
+[node name="parallax_back" type="ParallaxBackground" parent="." index="0"]
 
 layer = -1
 offset = Vector2( 0, 0 )
@@ -89,14 +89,14 @@ scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 _sections_unfolded = [ "Scroll" ]
 
-[node name="layer_1" type="ParallaxLayer" parent="prallax_back" index="0"]
+[node name="layer_1" type="ParallaxLayer" parent="parallax_back" index="0"]
 
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 2048, 1536 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="back" type="Sprite" parent="prallax_back/layer_1" index="0"]
+[node name="back" type="Sprite" parent="parallax_back/layer_1" index="0"]
 
 texture = ExtResource( 1 )
 centered = false
