@@ -2,7 +2,7 @@ extends Node2D
 
 onready var world = get_node("/root/main")
 
-var bullet_scene = preload("res://Scenes/Bullet.tscn")
+var bullet_scene = preload("res://Scenes/bullet.tscn")
 
 export (float) var turn_amount = 0.05
 export (float) var max_speed = 4

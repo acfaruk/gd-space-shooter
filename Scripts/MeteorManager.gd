@@ -3,7 +3,7 @@ extends Node
 onready var world = get_node("/root/main")
 onready var main_cam = get_node("/root/main/player/cam")
 
-var meteor_scene = preload("res://Scenes/Meteor.tscn")
+var meteor_scene = preload("res://Scenes/meteor.tscn")
 
 export (int) var max_meteor_distance_squared = 2000*2000
 export (int) var min_meteor_distance = 1050

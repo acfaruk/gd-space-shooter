@@ -72,7 +72,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 [node name="parallax_back" type="ParallaxBackground" parent="." index="0"]
 
