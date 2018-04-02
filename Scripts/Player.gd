@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 onready var world = get_node("/root/main")
 

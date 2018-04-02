@@ -7,7 +7,7 @@ var meteor_scene = preload("res://Scenes/meteor.tscn")
 
 export (int) var max_meteor_distance_squared = 2000*2000
 export (int) var min_meteor_distance = 1050
-export (int) var max_meteors = 20
+export (int) var max_meteors = 30
 
 var meteors = []
 
