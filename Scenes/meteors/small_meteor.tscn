@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Meteor.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/meteorGrey_small2.png" type="Texture" id=2]
+
+[node name="meteor" type="RigidBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+size = 2
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision_shape" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( 1.09126, 0 )
+scale = Vector2( 0.4, 0.4 )
+build_mode = 0
+polygon = PoolVector2Array( -7.16712, 11.7667, 2.51591, 12.7114, 10.3096, -0.750418, 2.51591, -11.6143, -12.5991, -9.01642, -18.2672, 3.02834 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_meteor_body_shape_entered"]
+
+

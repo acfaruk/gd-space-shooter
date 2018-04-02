@@ -14,6 +14,10 @@ config/name="gd-space-shooter"
 run/main_scene="res://Scenes/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MeteorManager="*res://Scripts/MeteorManager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

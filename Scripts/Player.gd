@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var world = get_node("/root/main")
 
-var bullet_scene = preload("res://Scenes/bullet.tscn")
+const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
 export (float) var turn_amount = 0.05
 export (float) var max_speed = 4
@@ -36,7 +36,7 @@ func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.position = position
 	bullet.rotation = rotation
-	bullet.move_local_y(-25)
+	bullet.move_local_y(-35)
 	world.add_child(bullet)
 	
 
