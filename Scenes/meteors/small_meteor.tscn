@@ -1,132 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Meteor.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/meteors/meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/meteorGrey_small2.png" type="Texture" id=2]
-[ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=4]
 
-[sub_resource type="Gradient" id=1]
+[node name="meteor" index="0" instance=ExtResource( 1 )]
 
-offsets = PoolRealArray( 0, 0.597633, 1 )
-colors = PoolColorArray( 0.761719, 0, 0, 1, 0.882813, 0.834749, 0.1138, 0.856353, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-
-flags = 4
-gradient = SubResource( 1 )
-width = 2048
-
-[sub_resource type="ParticlesMaterial" id=3]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 5.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 180.0
-flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 20.0
-initial_velocity_random = 0.0
-angular_velocity = 4.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 5.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 0.1
-scale_random = 0.0
-color_ramp = SubResource( 2 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
-
-[node name="meteor" type="RigidBody2D"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
 size = 2
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="collision_shape" type="CollisionPolygon2D" parent="." index="1"]
+[node name="shape" type="CollisionPolygon2D" parent="." index="1"]
 
-position = Vector2( 1.09126, 0 )
 scale = Vector2( 0.4, 0.4 )
 build_mode = 0
-polygon = PoolVector2Array( -7.16712, 11.7667, 2.51591, 12.7114, 10.3096, -0.750418, 2.51591, -11.6143, -12.5991, -9.01642, -18.2672, 3.02834 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="2"]
-
-stream = ExtResource( 3 )
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="explosion_particles" type="Particles2D" parent="." index="3"]
-
-emitting = false
-amount = 100
-lifetime = 1.5
-one_shot = true
-preprocess = 0.0
-speed_scale = 2.0
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 0
-fract_delta = false
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = false
-draw_order = 0
-process_material = SubResource( 3 )
-texture = ExtResource( 4 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-
-[connection signal="body_shape_entered" from="." to="." method="_on_meteor_body_shape_entered"]
-
-[connection signal="finished" from="explosion_sound" to="." method="_on_explosion_sound_finished"]
+polygon = PoolVector2Array( 4.64777, 13.1139, 14.8535, -1.27882, 4.90946, -12.793, -10.53, -9.12937, -14.9786, 1.33803, -5.55796, 12.3288 )
 
 
