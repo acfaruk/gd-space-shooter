@@ -28,7 +28,6 @@ func spawn_meteors():
 		var dist = randi() % 200 + min_meteor_distance
 		var rot = randi() % 360
 		
-		
 		meteor.position = main_cam.get_camera_position()
 		meteor.rotation_degrees = rot
 		meteor.move_local_y(-dist)
