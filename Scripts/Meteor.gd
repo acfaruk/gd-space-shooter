@@ -20,6 +20,8 @@ func _ready():
 
 func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body is Bullet && size == SIZE.BIG:
+		start_explosion()
+		
 		var medium_meteor = medium_meteor_scene.instance()
 		var medium_meteor2 = medium_meteor_scene.instance()
 		var small_meteor = small_meteor_scene.instance()
@@ -28,7 +30,6 @@ func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 		medium_meteor2.position = position
 		small_meteor.position = position
 		
-		MeteorManager.despawn_meteor(self)
 		MeteorManager.add_meteor(medium_meteor)
 		MeteorManager.add_meteor(medium_meteor2)
 		MeteorManager.add_meteor(small_meteor)
@@ -37,4 +38,13 @@ func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 		get_parent().add_child(medium_meteor2)
 		get_parent().add_child(small_meteor)
 	elif body is Bullet:
-		MeteorManager.despawn_meteor(self)
+		start_explosion()
+
+func start_explosion():
+	contact_monitor = false
+	$explosion_particles.emitting = true
+	$sprite.visible = false
+	$explosion_sound.play()
+
+func _on_explosion_sound_finished():
+	MeteorManager.despawn_meteor(self)
