@@ -41,7 +41,7 @@ func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 		start_explosion()
 
 func start_explosion():
-	contact_monitor = false
+	call_deferred("set_contact_monitor", false)
 	$explosion_particles.emitting = true
 	$sprite.visible = false
 	$explosion_sound.play()

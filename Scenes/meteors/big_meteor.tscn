@@ -56,7 +56,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
 
-[node name="meteor" type="RigidBody2D"]
+[node name="meteor" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
