@@ -1,75 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/back.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=4]
-[ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=5]
-
-[sub_resource type="Gradient" id=1]
-
-offsets = PoolRealArray( 0.136095, 0.609467, 1 )
-colors = PoolColorArray( 0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-
-flags = 4
-gradient = SubResource( 1 )
-width = 2048
-
-[sub_resource type="Curve" id=3]
-
-min_value = 0.0
-max_value = 1.0
-bake_resolution = 100
-_data = [ Vector2( 0.0011998, 0.424805 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0.220703 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-
-flags = 4
-width = 2048
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 8.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 10.0
-flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 0.3
-scale_random = 0.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=2]
 
 [node name="main" type="Node"]
 
@@ -100,89 +32,10 @@ _sections_unfolded = [ "Motion", "Transform" ]
 texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="player" type="KinematicBody2D" parent="." index="1"]
-
-position = Vector2( 521.101, 268.285 )
-scale = Vector2( 0.4, 0.4 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-turn_amount = 0.05
-max_speed = 5.0
-acceleration = 0.1
-
-[node name="turbine_particles" type="Particles2D" parent="player" index="0"]
-
-position = Vector2( 0, 38.7812 )
-rotation = 1.5708
-emitting = true
-amount = 300
-lifetime = 0.1
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = false
-draw_order = 0
-process_material = SubResource( 5 )
-texture = ExtResource( 3 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
-
-[node name="sprite" type="Sprite" parent="player" index="1"]
-
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="cam" type="Camera2D" parent="player" index="2"]
-
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.1
-drag_margin_top = 0.1
-drag_margin_right = 0.1
-drag_margin_bottom = 0.1
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Transform" ]
-
-[node name="turbine_sound" type="AudioStreamPlayer2D" parent="player" index="3"]
-
-stream = ExtResource( 5 )
-volume_db = 0.0
-autoplay = true
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="collision_shape" type="CollisionPolygon2D" parent="player" index="4"]
-
-build_mode = 0
-polygon = PoolVector2Array( 6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444 )
+[node name="player" parent="." index="1" instance=ExtResource( 2 )]
 
 

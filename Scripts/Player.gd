@@ -11,13 +11,11 @@ export (float) var acceleration = 0.1
 var cur_speed = 0
 
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_right"):
-		rotate(turn_amount)
-		
-	if Input.is_action_pressed("ui_left"):
-		rotate(-turn_amount)
-		
-	if Input.is_action_just_pressed("ui_select"):
+	
+	look_at(get_global_mouse_position())
+	rotate(PI/2)
+	
+	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
 	if Input.is_action_pressed("ui_up"):
