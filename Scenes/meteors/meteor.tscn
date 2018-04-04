@@ -20,7 +20,7 @@ width = 2048
 render_priority = 0
 trail_divisor = 1
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 15.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
@@ -55,7 +55,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
 
-[node name="meteor" type="RigidBody2D"]
+[node name="meteor" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -93,7 +93,7 @@ area_mask = 1
 
 emitting = false
 amount = 100
-lifetime = 1.5
+lifetime = 3.0
 one_shot = true
 preprocess = 0.0
 speed_scale = 2.0
