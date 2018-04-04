@@ -5,15 +5,12 @@
 
 [node name="meteor" instance=ExtResource( 1 )]
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="shape" type="CollisionPolygon2D" parent="." index="1"]
+[node name="shape" parent="." index="1"]
 
-scale = Vector2( 0.4, 0.4 )
-build_mode = 0
-polygon = PoolVector2Array( 29.5079, 42.4226, 48.3492, -12.0079, 16.4236, -47.5971, -35.1284, -34.5129, -49.7828, 11.0204, -20.474, 48.1797 )
+polygon = PoolVector2Array( 30.3179, 42.6302, 49.2116, -11.4529, 17.0923, -48.5318, -34.8653, -33.653, -49.2717, 10.7471, -19.7504, 48.0621 )
 
 

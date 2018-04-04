@@ -79,7 +79,17 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 size = 0
 
-[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="0"]
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+
+[node name="shape" type="CollisionPolygon2D" parent="." index="1"]
+
+scale = Vector2( 0.4, 0.4 )
+build_mode = 0
+polygon = PoolVector2Array(  )
+
+[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="2"]
 
 stream = ExtResource( 2 )
 volume_db = 0.0
@@ -89,7 +99,7 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="explosion_particles" type="Particles2D" parent="." index="1"]
+[node name="explosion_particles" type="Particles2D" parent="." index="3"]
 
 emitting = false
 amount = 100

@@ -20,17 +20,11 @@ func _ready():
 
 func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body is Bullet && size == SIZE.BIG:
-		start_explosion()
+		destroy()
 		shatter_to_pieces()
 	
 	elif body is Bullet:
-		start_explosion()
-
-func start_explosion():
-	call_deferred("set_contact_monitor", false)
-	$explosion_particles.emitting = true
-	$sprite.visible = false
-	$explosion_sound.play()
+		destroy()
 
 func shatter_to_pieces():
 	var medium_meteor = medium_meteor_scene.instance()
@@ -45,4 +39,11 @@ func shatter_to_pieces():
 		get_parent().add_child(meteor)
 
 func _on_explosion_sound_finished():
-	MeteorManager.despawn_meteor(self)
+	queue_free()
+	
+func destroy():
+	MeteorManager.remove_meteor(self)
+	$explosion_particles.emitting = true
+	$explosion_sound.play()
+	$sprite.queue_free()
+	$shape.queue_free()

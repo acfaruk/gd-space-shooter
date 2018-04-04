@@ -18,7 +18,8 @@ func _physics_process(delta):
 func despawn_meteors():
 	for meteor in meteors:
 		if meteor.position.distance_squared_to(main_cam.get_camera_position()) > max_meteor_distance_squared:
-			despawn_meteor(meteor)
+			remove_meteor(meteor)
+			meteor.destroy()
 
 func spawn_meteors():
 	if meteors.size() < max_meteors:
@@ -33,8 +34,7 @@ func spawn_meteors():
 		meteor.move_local_y(-dist)
 		world.add_child(meteor)
 		
-func despawn_meteor(meteor):
-	meteor.queue_free()
+func remove_meteor(meteor):
 	meteors.erase(meteor)
 	
 func add_meteor(meteor):

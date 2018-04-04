@@ -7,15 +7,12 @@
 
 size = 1
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="shape" type="CollisionPolygon2D" parent="." index="1"]
+[node name="shape" parent="." index="1"]
 
-scale = Vector2( 0.4, 0.4 )
-build_mode = 0
-polygon = PoolVector2Array( 5.17113, 19.9177, 21.919, -2.32555, 8.83472, -19.8585, -15.502, -15.4098, -22.3058, 4.73994, -9.74493, 18.871 )
+polygon = PoolVector2Array( 5.95619, 20.7028, 22.9657, -2.58724, 8.57304, -20.1202, -16.8104, -14.8865, -21.7825, 4.47826, -10.2683, 17.3008 )
 
 
