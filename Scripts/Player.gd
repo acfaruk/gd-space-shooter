@@ -7,7 +7,6 @@ const Meteor = preload("res://Scripts/Meteor.gd")
 const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
 #EXPORTS
-export (NodePath) var hud_path
 export (float) var speed = 5
 
 signal health_changed(health)

@@ -93,7 +93,6 @@ angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-hud_path = null
 speed = 5.0
 
 [node name="turbine_particles" type="Particles2D" parent="." index="0"]
