@@ -66,6 +66,6 @@ func loose_health(amount):
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:
 		$crash_sound.play()
-		var crash_velocity = min((body.linear_velocity - linear_velocity).length(), 800)/800
+		var crash_velocity = clamp((body.linear_velocity - linear_velocity).length(), 0, 800)/800
 		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
 		loose_health(health_penalty)
