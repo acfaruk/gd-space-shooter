@@ -7,12 +7,10 @@ const Meteor = preload("res://Scripts/Meteor.gd")
 const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
 #EXPORTS
-export (NodePath) var world_path
 export (NodePath) var hud_path
 export (float) var speed = 5
 
 #NODES
-onready var world = get_node(world_path)
 onready var hud = get_node(hud_path)
 
 var dir = Vector2(0, 0)
@@ -47,7 +45,7 @@ func _physics_process(delta):
 func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.setup(position, rotation, 35)
-	world.add_child(bullet)
+	get_parent().add_child(bullet)
 	
 func start_turbine():
 	if ! $turbine_sound.playing:
@@ -59,7 +57,7 @@ func stop_turbine():
 		$turbine_sound.stop()
 		$turbine_particles.emitting = false
 
-func loose_health(amount):
+func lose_health(amount):
 	health -= amount
 	hud.set_health(health)
 
@@ -68,4 +66,4 @@ func _on_player_body_entered(body):
 		$crash_sound.play()
 		var crash_velocity = clamp((body.linear_velocity - linear_velocity).length(), 0, 800)/800
 		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
-		loose_health(health_penalty)
+		lose_health(health_penalty)
