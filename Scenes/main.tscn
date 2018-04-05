@@ -47,8 +47,6 @@ hud_path = NodePath("../hud")
 [node name="meteor_manager" type="Node" parent="." index="3"]
 
 script = ExtResource( 4 )
-world_path = NodePath("..")
-player_path = NodePath("../player")
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
 max_meteors = 30
