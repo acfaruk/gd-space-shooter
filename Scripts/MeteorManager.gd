@@ -1,14 +1,20 @@
 extends Node
 
-onready var world = get_node("/root/main")
-onready var main_cam = get_node("/root/main/player/cam")
-
+#SCENES
 const meteor_scene = preload("res://Scenes/meteors/big_meteor.tscn")
 
+#EXPORT
+export (NodePath) var world_path
+export (NodePath) var player_path
 export (int) var max_meteor_distance_squared = 2000*2000
 export (int) var min_meteor_distance = 1050
 export (int) var max_meteors = 30
 
+#NODES
+onready var world = get_node(world_path)
+onready var player = get_node(player_path)
+
+#VARS
 var meteors = []
 
 func _physics_process(delta):
@@ -17,21 +23,14 @@ func _physics_process(delta):
 
 func despawn_meteors():
 	for meteor in meteors:
-		if meteor.position.distance_squared_to(main_cam.get_camera_position()) > max_meteor_distance_squared:
-			remove_meteor(meteor)
+		if meteor.position.distance_squared_to(player.position) > max_meteor_distance_squared:
 			meteor.destroy()
 
 func spawn_meteors():
 	if meteors.size() < max_meteors:
 		var meteor = meteor_scene.instance()
-		meteors.append(meteor)
-		
-		var dist = randi() % 200 + min_meteor_distance
-		var rot = randi() % 360
-		
-		meteor.position = main_cam.get_camera_position()
-		meteor.rotation_degrees = rot
-		meteor.move_local_y(-dist)
+		var distance = randi() % 200 + min_meteor_distance
+		meteor.setup(player.position, self, distance)
 		world.add_child(meteor)
 		
 func remove_meteor(meteor):

@@ -1,12 +1,16 @@
 extends KinematicBody2D
 
-onready var world = get_node("/root/main")
-
+#SCENES
 const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
+#EXPORTS
+export (NodePath) var world_path
 export (float) var turn_amount = 0.05
 export (float) var max_speed = 4
 export (float) var acceleration = 0.1
+
+#NODES
+onready var world = get_node(world_path)
 
 var cur_speed = 0
 
@@ -32,9 +36,7 @@ func _physics_process(delta):
 	
 func shoot():
 	var bullet = bullet_scene.instance()
-	bullet.position = position
-	bullet.rotation = rotation
-	bullet.move_local_y(-35)
+	bullet.setup(position, rotation, 35)
 	world.add_child(bullet)
 	
 

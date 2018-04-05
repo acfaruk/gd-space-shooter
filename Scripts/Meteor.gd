@@ -1,15 +1,21 @@
 extends RigidBody2D
 
-enum SIZE {BIG, MEDIUM, SMALL} 
+#ENUMS
+enum SIZE {BIG, MEDIUM, SMALL}
 
+#SCRIPTS
 const Bullet = preload("res://Scripts/Bullet.gd")
 
+#SCENES
 const medium_meteor_scene = preload("res://Scenes/meteors/medium_meteor.tscn")
 const small_meteor_scene = preload("res://Scenes/meteors/small_meteor.tscn")
 
-var speed = Vector2(0, 0)
-
+#EXPORT
 export (SIZE) var size
+
+#VARS
+var speed = Vector2(0, 0)
+var meteor_manager = null
 
 func _ready():
 	speed.x = randi() % 10 - 5
@@ -17,6 +23,13 @@ func _ready():
 	apply_impulse(Vector2(0, 0), speed*75)
 	contact_monitor = true
 	contacts_reported = 1
+
+func setup(pos, meteor_manager, distance = 0):
+	self.meteor_manager = meteor_manager
+	self.meteor_manager.add_meteor(self)
+	position = pos
+	rotation_degrees = randi() % 360
+	move_local_y(-distance)
 
 func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body is Bullet && size == SIZE.BIG:
@@ -34,15 +47,14 @@ func shatter_to_pieces():
 	var meteors = [medium_meteor, medium_meteor2, small_meteor]
 	
 	for meteor in meteors:
-		meteor.position = position
-		MeteorManager.add_meteor(meteor)
+		meteor.setup(position, meteor_manager)
 		get_parent().add_child(meteor)
 
 func _on_explosion_sound_finished():
 	queue_free()
 	
 func destroy():
-	MeteorManager.remove_meteor(self)
+	meteor_manager.remove_meteor(self)
 	$explosion_particles.emitting = true
 	$explosion_sound.play()
 	$sprite.queue_free()

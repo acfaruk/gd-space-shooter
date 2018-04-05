@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/back.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=3]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="parallax_back" type="ParallaxBackground" parent="." index="0"]
 
@@ -37,5 +38,16 @@ __meta__ = {
 }
 
 [node name="player" parent="." index="1" instance=ExtResource( 2 )]
+
+world_path = NodePath("..")
+
+[node name="meteor_manager" type="Node" parent="." index="2"]
+
+script = ExtResource( 3 )
+world_path = NodePath("..")
+player_path = NodePath("../player")
+max_meteor_distance_squared = 4000000
+min_meteor_distance = 1050
+max_meteors = 30
 
 
