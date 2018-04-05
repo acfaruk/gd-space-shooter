@@ -49,5 +49,6 @@ func start_turbine():
 		$turbine_particles.emitting = true
 
 func stop_turbine():
-	$turbine_sound.stop()
-	$turbine_particles.emitting = false
+	if $turbine_sound.playing:
+		$turbine_sound.stop()
+		$turbine_particles.emitting = false
