@@ -24,12 +24,12 @@ func _ready():
 	contact_monitor = true
 	contacts_reported = 1
 
-func setup(pos, meteor_manager, distance = 0):
+func setup(pos, meteor_manager, dist = 0):
 	self.meteor_manager = meteor_manager
 	self.meteor_manager.add_meteor(self)
 	position = pos
 	rotation_degrees = randi() % 360
-	move_local_y(-distance)
+	move_local_y(-dist)
 
 func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body is Bullet && size == SIZE.BIG:
