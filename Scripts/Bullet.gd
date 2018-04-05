@@ -19,4 +19,6 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_player_bullet_body_shape_entered(body_id, body, body_shape, local_shape):
-	queue_free()
+	$collision_shape.queue_free()
+	$sprite.queue_free()
+	$light.queue_free()

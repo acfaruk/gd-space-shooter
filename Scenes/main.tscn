@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=3]
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 [node name="parallax_back" type="ParallaxBackground" parent="." index="0"]
 
