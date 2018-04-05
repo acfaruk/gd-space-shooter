@@ -7,10 +7,10 @@ path="res://.import/lifebar_bg.png-536b49c0e2a052cddd4ce7885a34058d.stex"
 [deps]
 
 source_file="res://Sprites/hud/lifebar_bg.png"
-source_md5="df50f22ac78c3f6bdc76d80b2ca5bfe8"
+source_md5="1e7fa5993c709fb4833a7bf17c71fcac"
 
 dest_files=[ "res://.import/lifebar_bg.png-536b49c0e2a052cddd4ce7885a34058d.stex" ]
-dest_md5="68a31b4f63a3a796328405ea7610fd87"
+dest_md5="46aa47d32114460f037fb4deafc71201"
 
 [params]
 

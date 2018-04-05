@@ -7,10 +7,10 @@ path="res://.import/energy_bar_fill.png-d3805b014a336b7ee0f85838d66a4317.stex"
 [deps]
 
 source_file="res://Sprites/hud/energy_bar_fill.png"
-source_md5="34cb5bf422233cf803cb46fecec0a333"
+source_md5="a40bf43645d05187325d0bd622570f95"
 
 dest_files=[ "res://.import/energy_bar_fill.png-d3805b014a336b7ee0f85838d66a4317.stex" ]
-dest_md5="07b8923db98648e0a925d4ae3bedccaa"
+dest_md5="c65830568dd2055adf62358f8074f1f5"
 
 [params]
 

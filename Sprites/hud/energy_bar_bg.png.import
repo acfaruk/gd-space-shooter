@@ -7,10 +7,10 @@ path="res://.import/energy_bar_bg.png-8bc321bb9ff74341c4299b7972292716.stex"
 [deps]
 
 source_file="res://Sprites/hud/energy_bar_bg.png"
-source_md5="b57ae8662f855dbbf3a188c7b28b8c7b"
+source_md5="22f4561e13359dc957212722f91f8bdd"
 
 dest_files=[ "res://.import/energy_bar_bg.png-8bc321bb9ff74341c4299b7972292716.stex" ]
-dest_md5="070596138cfdcf368e68e5b44cc25dcd"
+dest_md5="5c00e6fb7b08db284178f07c29cc50be"
 
 [params]
 
