@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/particle.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=3]
 [ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/crash.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Gradient" id=1]
 
@@ -69,17 +70,32 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Trail" ]
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="RigidBody2D"]
 
 scale = Vector2( 0.4, 0.4 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 5
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 world_path = null
-speed = 250.0
+hud_path = null
+speed = 5.0
 
 [node name="turbine_particles" type="Particles2D" parent="." index="0"]
 
@@ -146,9 +162,22 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="collision_shape" type="CollisionPolygon2D" parent="." index="4"]
+[node name="crash_sound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+scale = Vector2( 1, 1 )
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="collision_shape" type="CollisionPolygon2D" parent="." index="5"]
 
 build_mode = 0
 polygon = PoolVector2Array( 6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444 )
+
+[connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
 
 

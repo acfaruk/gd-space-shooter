@@ -1,16 +1,22 @@
-extends KinematicBody2D
+extends RigidBody2D
+
+#SCRIPTS
+const Meteor = preload("res://Scripts/Meteor.gd")
 
 #SCENES
 const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
 #EXPORTS
 export (NodePath) var world_path
-export (float) var speed = 250
+export (NodePath) var hud_path
+export (float) var speed = 5
 
 #NODES
 onready var world = get_node(world_path)
+onready var hud = get_node(hud_path)
 
 var dir = Vector2(0, 0)
+var health = 100
 
 func _physics_process(delta):
 	
@@ -31,12 +37,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		dir.x = -1
 	
-	move_and_slide(dir.normalized() * speed)
-	
 	if dir.length() > 0:
 		start_turbine()
 	else:
 		stop_turbine()
+	
+	position += dir.normalized() * speed
 	
 func shoot():
 	var bullet = bullet_scene.instance()
@@ -52,3 +58,14 @@ func stop_turbine():
 	if $turbine_sound.playing:
 		$turbine_sound.stop()
 		$turbine_particles.emitting = false
+
+func loose_health(amount):
+	health -= amount
+	hud.set_health(health)
+
+func _on_player_body_entered(body):
+	if body is Meteor && ! $crash_sound.playing:
+		$crash_sound.play()
+		var crash_velocity = min((body.linear_velocity - linear_velocity).length(), 800)/800
+		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
+		loose_health(health_penalty)

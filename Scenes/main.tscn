@@ -43,6 +43,7 @@ __meta__ = {
 [node name="player" parent="." index="2" instance=ExtResource( 3 )]
 
 world_path = NodePath("..")
+hud_path = NodePath("../hud")
 
 [node name="meteor_manager" type="Node" parent="." index="3"]
 
