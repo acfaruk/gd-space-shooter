@@ -12,7 +12,7 @@ config_version=3
 
 config/name="gd-space-shooter"
 run/main_scene="res://Scenes/main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/playerShip1_orange.png"
 
 [display]
 

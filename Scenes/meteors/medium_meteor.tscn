@@ -5,6 +5,7 @@
 
 [node name="meteor" instance=ExtResource( 1 )]
 
+mass = 0.5
 size = 1
 
 [node name="sprite" parent="." index="0"]

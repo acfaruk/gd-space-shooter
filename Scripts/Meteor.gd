@@ -50,8 +50,6 @@ func shatter_to_pieces():
 		meteor.setup(position, meteor_manager)
 		get_parent().add_child(meteor)
 
-func _on_explosion_sound_finished():
-	queue_free()
 	
 func destroy():
 	meteor_manager.remove_meteor(self)
@@ -62,3 +60,6 @@ func explode():
 	destroy()
 	$explosion_particles.emitting = true
 	$explosion_sound.play()
+
+func _on_explosion_sound_finished():
+	queue_free()
