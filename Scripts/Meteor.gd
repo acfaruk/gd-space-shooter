@@ -33,11 +33,11 @@ func setup(pos, meteor_manager, dist = 0):
 
 func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body is Bullet && size == SIZE.BIG:
-		destroy()
+		explode()
 		shatter_to_pieces()
 	
 	elif body is Bullet:
-		destroy()
+		explode()
 
 func shatter_to_pieces():
 	var medium_meteor = medium_meteor_scene.instance()
@@ -55,7 +55,10 @@ func _on_explosion_sound_finished():
 	
 func destroy():
 	meteor_manager.remove_meteor(self)
-	$explosion_particles.emitting = true
-	$explosion_sound.play()
 	$sprite.queue_free()
 	$shape.queue_free()
+
+func explode():
+	destroy()
+	$explosion_particles.emitting = true
+	$explosion_sound.play()

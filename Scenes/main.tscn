@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=3]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="parallax_back" type="ParallaxBackground" parent="." index="0"]
 
@@ -48,6 +48,5 @@ world_path = NodePath("..")
 player_path = NodePath("../player")
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
-max_meteors = 30
 
 
