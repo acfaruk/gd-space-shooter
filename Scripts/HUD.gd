@@ -1,13 +1,24 @@
 extends CanvasLayer
 
+var health
+var energy
+
+func _ready():
+	health = find_node("health")
+	energy = find_node("energy")
+
 func set_health(value):
-	$container/hbox_main/vbox_left/health.value = value
+	health.value = value
 
 func get_health():
-	return $container/hbox_main/vbox_left/health.value
+	return health.value
 
 func set_energy(value):
-	$container/hbox_main/vbox_left/energy.value = value
+	energy.value = value
 
 func get_energy():
-	return $container/hbox_main/vbox_left/energy.value
+	return energy.value
+
+
+func _on_player_health_changed(health):
+	set_health(health)

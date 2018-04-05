@@ -163,7 +163,6 @@ area_mask = 1
 
 [node name="crash_sound" type="AudioStreamPlayer2D" parent="." index="4"]
 
-scale = Vector2( 1, 1 )
 stream = ExtResource( 5 )
 volume_db = -5.0
 autoplay = false

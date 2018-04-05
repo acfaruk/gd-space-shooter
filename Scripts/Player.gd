@@ -10,8 +10,7 @@ const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 export (NodePath) var hud_path
 export (float) var speed = 5
 
-#NODES
-onready var hud = get_node(hud_path)
+signal health_changed(health)
 
 var dir = Vector2(0, 0)
 var health = 100
@@ -59,7 +58,7 @@ func stop_turbine():
 
 func lose_health(amount):
 	health -= amount
-	hud.set_health(health)
+	emit_signal("health_changed", health)
 
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:

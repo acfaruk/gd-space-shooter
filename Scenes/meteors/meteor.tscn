@@ -55,7 +55,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
 
-[node name="meteor" type="RigidBody2D" index="0"]
+[node name="meteor" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -121,7 +121,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
 
-[connection signal="body_shape_entered" from="." to="." method="_on_meteor_body_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_meteor_body_entered"]
 
 [connection signal="finished" from="explosion_sound" to="." method="_on_explosion_sound_finished"]
 

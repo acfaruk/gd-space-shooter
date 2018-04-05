@@ -53,4 +53,6 @@ max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
 max_meteors = 30
 
+[connection signal="health_changed" from="player" to="hud" method="_on_player_health_changed"]
+
 

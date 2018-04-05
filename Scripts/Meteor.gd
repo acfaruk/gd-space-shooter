@@ -31,7 +31,7 @@ func setup(pos, meteor_manager, dist = 0):
 	rotation_degrees = randi() % 360
 	move_local_y(-dist)
 
-func _on_meteor_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_meteor_body_entered(body):
 	if body is Bullet && size == SIZE.BIG:
 		explode()
 		shatter_to_pieces()
@@ -50,7 +50,6 @@ func shatter_to_pieces():
 		meteor.setup(position, meteor_manager)
 		get_parent().add_child(meteor)
 
-	
 func destroy():
 	meteor_manager.remove_meteor(self)
 	$sprite.queue_free()
@@ -63,3 +62,4 @@ func explode():
 
 func _on_explosion_sound_finished():
 	queue_free()
+
