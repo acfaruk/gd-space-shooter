@@ -5,14 +5,12 @@ const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 
 #EXPORTS
 export (NodePath) var world_path
-export (float) var turn_amount = 0.05
-export (float) var max_speed = 4
-export (float) var acceleration = 0.1
+export (float) var speed = 250
 
 #NODES
 onready var world = get_node(world_path)
 
-var cur_speed = 0
+var dir = Vector2(0, 0)
 
 func _physics_process(delta):
 	
@@ -21,22 +19,35 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-		
-	if Input.is_action_pressed("ui_up"):
-		cur_speed = min(cur_speed + acceleration, max_speed)
-		$turbine_particles.emitting = true
-		if (! $turbine_sound.playing):
-			$turbine_sound.play()
+	
+	dir.x = 0; dir.y = 0
+	
+	if Input.is_action_pressed("up"):
+		dir.y = -1
+	if Input.is_action_pressed("down"):
+		dir.y = 1
+	if Input.is_action_pressed("right"):
+		dir.x = 1
+	if Input.is_action_pressed("left"):
+		dir.x = -1
+	
+	move_and_slide(dir.normalized() * speed)
+	
+	if dir.length() > 0:
+		start_turbine()
 	else:
-		cur_speed = max(cur_speed - acceleration / 2, 0)
-		$turbine_particles.emitting = false
-		$turbine_sound.stop()
-		
-	move_local_y(-cur_speed)
+		stop_turbine()
 	
 func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.setup(position, rotation, 35)
 	world.add_child(bullet)
 	
+func start_turbine():
+	if ! $turbine_sound.playing:
+		$turbine_sound.play()
+		$turbine_particles.emitting = true
 
+func stop_turbine():
+	$turbine_sound.stop()
+	$turbine_particles.emitting = false

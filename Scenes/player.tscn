@@ -21,7 +21,7 @@ width = 2048
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
-_data = [ Vector2( 0.0011998, 0.424805 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0.220703 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.199219 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=4]
 
@@ -33,8 +33,7 @@ curve = SubResource( 3 )
 
 render_priority = 0
 trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 8.0
+emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
@@ -57,7 +56,7 @@ damping = 0.0
 damping_random = 0.0
 angle = 0.0
 angle_random = 0.0
-scale = 0.3
+scale = 0.5
 scale_random = 0.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -68,7 +67,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Hue Variation", "Scale", "Trail" ]
+_sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Trail" ]
 
 [node name="player" type="KinematicBody2D"]
 
@@ -80,17 +79,15 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 world_path = null
-turn_amount = 0.05
-max_speed = 5.0
-acceleration = 0.1
+speed = 250.0
 
 [node name="turbine_particles" type="Particles2D" parent="." index="0"]
 
-position = Vector2( -0.311196, 52.1594 )
-rotation = -1.5708
+position = Vector2( -0.467885, 40.7217 )
+rotation = 1.5708
 emitting = true
 amount = 300
-lifetime = 0.1
+lifetime = 0.25
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
