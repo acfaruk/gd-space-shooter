@@ -48,5 +48,6 @@ world_path = NodePath("..")
 player_path = NodePath("../player")
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
+max_meteors = 30
 
 
