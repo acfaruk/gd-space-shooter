@@ -19,6 +19,8 @@ func set_energy(value):
 func get_energy():
 	return energy.value
 
-
 func _on_player_health_changed(health):
 	set_health(health)
+
+func _on_player_energy_changed(energy):
+	set_energy(energy)

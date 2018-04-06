@@ -10,9 +10,12 @@ const bullet_scene = preload("res://Scenes/player_bullet.tscn")
 export (float) var speed = 5
 
 signal health_changed(health)
+signal energy_changed(energy)
 
 var dir = Vector2(0, 0)
 var health = 100
+var energy = 100
+var is_energy_reloading = false
 
 func _physics_process(delta):
 	
@@ -40,10 +43,16 @@ func _physics_process(delta):
 	
 	position += dir.normalized() * speed
 	
+	if is_energy_reloading:
+		add_energy(1)
+	
 func shoot():
-	var bullet = bullet_scene.instance()
-	bullet.setup(position, rotation, 35)
-	get_parent().add_child(bullet)
+	if energy > 0:
+		var bullet = bullet_scene.instance()
+		bullet.setup(position, rotation, 35)
+		get_parent().add_child(bullet)
+		is_energy_reloading = false
+		add_energy(-5)
 	
 func start_turbine():
 	if ! $turbine_sound.playing:
@@ -55,13 +64,21 @@ func stop_turbine():
 		$turbine_sound.stop()
 		$turbine_particles.emitting = false
 
-func lose_health(amount):
-	health -= amount
+func add_health(amount):
+	health = clamp(health + amount, 0, 100)
 	emit_signal("health_changed", health)
+
+func add_energy(amount):
+	energy = clamp(energy + amount, 0, 100)
+	$energy_timer.start()
+	emit_signal("energy_changed", energy)
 
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:
 		$crash_sound.play()
 		var crash_velocity = clamp((body.linear_velocity - linear_velocity).length(), 0, 800)/800
 		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
-		lose_health(health_penalty)
+		add_health(-health_penalty)
+
+func _on_energy_timer_timeout():
+	is_energy_reloading = true
