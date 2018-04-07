@@ -59,7 +59,8 @@ func explode():
 	destroy()
 	$explosion_particles.emitting = true
 	$explosion_sound.play()
-
+	get_parent().find_node("player").add_score(10)
+	
 func _on_explosion_sound_finished():
 	queue_free()
 

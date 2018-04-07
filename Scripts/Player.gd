@@ -11,10 +11,14 @@ export (float) var speed = 5
 
 signal health_changed(health)
 signal energy_changed(energy)
+signal score_changed(score)
 
 var dir = Vector2(0, 0)
+
 var health = 100
 var energy = 100
+var score = 0
+
 var is_energy_reloading = false
 
 func _physics_process(delta):
@@ -72,6 +76,10 @@ func add_energy(amount):
 	energy = clamp(energy + amount, 0, 100)
 	$energy_timer.start()
 	emit_signal("energy_changed", energy)
+	
+func add_score(amount):
+	score += amount
+	emit_signal("score_changed", score)
 
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:

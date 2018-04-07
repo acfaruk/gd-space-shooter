@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=4]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="hud" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -52,5 +52,7 @@ max_meteors = 30
 [connection signal="energy_changed" from="player" to="hud" method="_on_player_energy_changed"]
 
 [connection signal="health_changed" from="player" to="hud" method="_on_player_health_changed"]
+
+[connection signal="score_changed" from="player" to="hud" method="_on_player_score_changed"]
 
 
