@@ -65,6 +65,8 @@ func shoot():
 		get_parent().add_child(bullet)
 		is_energy_reloading = false
 		add_energy(-5)
+	elif !$no_energy_sound.playing:
+		$no_energy_sound.play()
 	
 func start_turbine():
 	if ! $turbine_sound.playing:
