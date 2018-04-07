@@ -53,10 +53,7 @@ func _physics_process(delta):
 		add_energy(1)
 	
 	if is_game_over:
-		get_tree().paused = true
-		var game_over = game_over_scene.instance()
-		game_over.setup(score)
-		get_parent().add_child(game_over)
+		game_over()
 		
 func shoot():
 	if energy > 0:
@@ -100,7 +97,13 @@ func respawn():
 	add_score(-score)
 	is_game_over = false
 	get_tree().paused = false
-	
+
+func game_over():
+	get_tree().paused = true
+	var game_over = game_over_scene.instance()
+	game_over.setup(score)
+	get_parent().add_child(game_over)
+
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:
 		$crash_sound.play()
