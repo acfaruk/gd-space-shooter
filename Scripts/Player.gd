@@ -5,6 +5,7 @@ const Meteor = preload("res://Scripts/Meteor.gd")
 
 #SCENES
 const bullet_scene = preload("res://Scenes/player_bullet.tscn")
+const game_over_scene = preload("res://Scenes/gui/game_over.tscn")
 
 #EXPORTS
 export (float) var speed = 5
@@ -20,6 +21,7 @@ var energy = 100
 var score = 0
 
 var is_energy_reloading = false
+var is_game_over = false
 
 func _physics_process(delta):
 	
@@ -50,6 +52,12 @@ func _physics_process(delta):
 	if is_energy_reloading:
 		add_energy(1)
 	
+	if is_game_over:
+		get_tree().paused = true
+		var game_over = game_over_scene.instance()
+		game_over.setup(score)
+		get_parent().add_child(game_over)
+		
 func shoot():
 	if energy > 0:
 		var bullet = bullet_scene.instance()
@@ -70,6 +78,8 @@ func stop_turbine():
 
 func add_health(amount):
 	health = clamp(health + amount, 0, 100)
+	if health == 0:
+		is_game_over = true
 	emit_signal("health_changed", health)
 
 func add_energy(amount):
@@ -78,9 +88,17 @@ func add_energy(amount):
 	emit_signal("energy_changed", energy)
 	
 func add_score(amount):
-	score += amount
+	score = max(0, score + amount)
 	emit_signal("score_changed", score)
 
+func respawn():
+	position = Vector2(0,0)
+	add_health(100)
+	add_energy(100)
+	add_score(-score)
+	is_game_over = false
+	get_tree().paused = false
+	
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:
 		$crash_sound.play()
