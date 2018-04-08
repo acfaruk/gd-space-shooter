@@ -19,16 +19,22 @@ func _physics_process(delta):
 	despawn_meteors()
 	spawn_meteors()
 
+func _get_spawn_position():
+	if player != null:
+		return player.position
+	else:
+		return OS.window_size / 2
+
 func despawn_meteors():
 	for meteor in meteors:
-		if meteor.position.distance_squared_to(player.position) > max_meteor_distance_squared:
+		if meteor.position.distance_squared_to(_get_spawn_position()) > max_meteor_distance_squared:
 			meteor.destroy()
 
 func spawn_meteors():
 	if meteors.size() < max_meteors:
 		var meteor = meteor_scene.instance()
 		var distance = randi() % 200 + min_meteor_distance
-		meteor.setup(player.position, self, distance)
+		meteor.setup(_get_spawn_position(), self, distance)
 		get_parent().add_child(meteor)
 		
 func remove_meteor(meteor):
@@ -36,3 +42,4 @@ func remove_meteor(meteor):
 	
 func add_meteor(meteor):
 	meteors.append(meteor)
+	

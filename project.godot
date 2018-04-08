@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="gd-space-shooter"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/gui/main_menu.tscn"
 config/icon="res://Sprites/playerShip1_orange.png"
+
+[autoload]
+
+SceneManager="*res://Scripts/SceneManager.gd"
 
 [display]
 

@@ -7,3 +7,6 @@ func _on_restart_pressed():
 	get_tree().current_scene.find_node("player").respawn()
 	get_parent().remove_child(self)
 	queue_free()
+
+func _on_quit_pressed():
+	get_tree().quit()
