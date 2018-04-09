@@ -52,7 +52,9 @@ max_meteors = 30
 
 [node name="game_manager" type="Node" parent="." index="4"]
 
+pause_mode = 2
 script = ExtResource( 5 )
+_sections_unfolded = [ "Pause" ]
 
 [connection signal="death" from="player" to="game_manager" method="_on_player_death"]
 
