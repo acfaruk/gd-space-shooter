@@ -41,16 +41,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player" parent="." index="2" instance=ExtResource( 3 )]
+[node name="player" parent="." index="2" groups=[
+"restartable",
+] instance=ExtResource( 3 )]
 
-[node name="meteor_manager" type="Node" parent="." index="3"]
+[node name="meteor_manager" type="Node" parent="." index="3" groups=[
+"restartable",
+]]
 
 script = ExtResource( 4 )
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
 max_meteors = 30
 
-[node name="game_manager" type="Node" parent="." index="4"]
+[node name="game_manager" type="Node" parent="." index="4" groups=[
+"restartable",
+]]
 
 pause_mode = 2
 script = ExtResource( 5 )

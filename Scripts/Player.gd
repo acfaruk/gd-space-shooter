@@ -87,14 +87,6 @@ func add_score(amount):
 	score = max(0, score + amount)
 	emit_signal("score_changed", score)
 
-func respawn():
-	position = Vector2(0,0)
-	add_health(100)
-	add_energy(100)
-	add_score(-score)
-	get_tree().paused = false
-
-
 func _on_player_body_entered(body):
 	if body is Meteor && ! $crash_sound.playing:
 		$crash_sound.play()
@@ -104,3 +96,10 @@ func _on_player_body_entered(body):
 
 func _on_energy_timer_timeout():
 	is_energy_reloading = true
+	
+#GROUP restartable
+func restart():
+	position = Vector2(0,0)
+	add_health(100)
+	add_energy(100)
+	add_score(-score)

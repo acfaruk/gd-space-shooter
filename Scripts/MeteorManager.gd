@@ -42,4 +42,8 @@ func remove_meteor(meteor):
 	
 func add_meteor(meteor):
 	meteors.append(meteor)
-	
+
+#GROUP restartable
+func restart():
+	for meteor in meteors:
+		meteor.destroy()
