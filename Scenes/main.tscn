@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/gui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/back.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=5]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" index="0"]
 
 [node name="hud" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -48,6 +49,12 @@ script = ExtResource( 4 )
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
 max_meteors = 30
+
+[node name="game_manager" type="Node" parent="." index="4"]
+
+script = ExtResource( 5 )
+
+[connection signal="death" from="player" to="game_manager" method="_on_player_death"]
 
 [connection signal="energy_changed" from="player" to="hud" method="_on_player_energy_changed"]
 
