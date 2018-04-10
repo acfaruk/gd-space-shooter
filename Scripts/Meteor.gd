@@ -22,7 +22,7 @@ func _ready():
 	speed.y = randi() % 10 - 5
 	apply_impulse(Vector2(0, 0), speed*75)
 	contact_monitor = true
-	contacts_reported = 1
+	contacts_reported = 10
 
 func setup(pos, meteor_manager, dist = 0):
 	self.meteor_manager = meteor_manager
