@@ -17,6 +17,7 @@ config/icon="res://Sprites/playerShip1_orange.png"
 [autoload]
 
 SceneManager="*res://Scripts/SceneManager.gd"
+main_music="*res://Scenes/main_music.tscn"
 
 [display]
 

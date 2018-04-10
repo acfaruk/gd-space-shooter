@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Audio/main_music.ogg" type="AudioStream" id=1]
+
+[node name="main_music" type="AudioStreamPlayer" index="0"]
+
+stream = ExtResource( 1 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+
