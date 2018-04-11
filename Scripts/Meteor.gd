@@ -52,15 +52,15 @@ func shatter_to_pieces():
 
 func destroy():
 	meteor_manager.remove_meteor(self)
-	$sprite.queue_free()
-	$shape.queue_free()
+	queue_free()
 
 func explode():
-	destroy()
+	$sprite.hide()
+	$shape.disabled = true
 	$explosion_particles.emitting = true
 	$explosion_sound.play()
 	get_parent().find_node("player").add_score(10)
 	
 func _on_explosion_sound_finished():
-	queue_free()
+	destroy()
 
