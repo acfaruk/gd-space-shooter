@@ -1,7 +1,7 @@
 extends Node
 
 #SCENES
-const meteor_scene = preload("res://Scenes/meteors/big_meteor.tscn")
+export (PackedScene) var meteor_scene
 
 #EXPORT
 export (int) var max_meteor_distance_squared = 2000*2000

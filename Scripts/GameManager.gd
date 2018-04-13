@@ -1,8 +1,8 @@
 extends Node
 
 #SCENES
-const game_over_scene = preload("res://Scenes/gui/game_over.tscn")
-const pause_scene = preload("res://Scenes/gui/pause.tscn")
+export (PackedScene) var game_over_scene
+export (PackedScene) var pause_scene
 
 var is_game_over = false
 

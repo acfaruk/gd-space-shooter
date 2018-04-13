@@ -7,8 +7,8 @@ enum SIZE {BIG, MEDIUM, SMALL}
 const Bullet = preload("res://Scripts/Bullet.gd")
 
 #SCENES
-const medium_meteor_scene = preload("res://Scenes/meteors/medium_meteor.tscn")
-const small_meteor_scene = preload("res://Scenes/meteors/small_meteor.tscn")
+export (PackedScene) var medium_meteor_scene
+export (PackedScene) var small_meteor_scene
 
 #EXPORT
 export (SIZE) var size

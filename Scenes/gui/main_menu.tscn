@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/gui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/back.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MeteorManager.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/meteors/big_meteor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main_menu" type="CanvasLayer"]
+[node name="main_menu" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -31,6 +32,7 @@ texture = ExtResource( 2 )
 [node name="meteor_manager" type="Node" parent="back" index="1"]
 
 script = ExtResource( 3 )
+meteor_scene = ExtResource( 4 )
 max_meteor_distance_squared = 4000000
 min_meteor_distance = 1050
 max_meteors = 50
