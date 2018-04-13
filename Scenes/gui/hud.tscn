@@ -1,24 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/gui/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/hud/lifebar_bg.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/hud/lifebar_fill.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/hud/energy_bar_bg.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/hud/energy_bar_fill.png" type="Texture" id=5]
-[ext_resource path="res://Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/info.tres" type="DynamicFont" id=6]
 
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 24
-use_mipmaps = false
-use_filter = false
-extra_spacing_top = 5
-extra_spacing_bottom = 5
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
-
-[node name="hud" type="CanvasLayer"]
+[node name="hud" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -162,14 +151,14 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 501.0
-margin_bottom = 38.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "0"
 align = 2
 uppercase = true
