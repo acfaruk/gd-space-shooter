@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/hud/energy_bar_fill.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/info.tres" type="DynamicFont" id=6]
 
-[node name="hud" type="CanvasLayer" index="0"]
+[node name="hud" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
