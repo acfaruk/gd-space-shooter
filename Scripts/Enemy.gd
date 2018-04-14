@@ -11,6 +11,11 @@ func _ready():
 	contact_monitor = true
 	contacts_reported = 10
 
+func setup(pos, dist = 1000):
+	position = pos
+	rotation_degrees = randi() % 360
+	move_local_y(-dist)
+
 func _physics_process(delta):
 	look_at(player.position)
 	rotate(PI/2)
@@ -19,4 +24,7 @@ func _physics_process(delta):
 func _on_enemy_body_entered(body):
 	print(body)
 	if body is Bullet:
-		queue_free()
+		destroy()
+
+func destroy():
+	queue_free()
