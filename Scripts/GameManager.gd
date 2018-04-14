@@ -3,13 +3,14 @@ extends Node
 #SCENES
 export (PackedScene) var game_over_scene
 export (PackedScene) var pause_scene
+export (PackedScene) var settings_scene
 
 var is_game_over = false
 
 func _input(event):
 	if event.is_action_pressed("pause") && !is_game_over:
 		var pause = get_parent().get_node("pause")
-		if pause != null:
+		if pause:
 			pause.close()
 		else:
 			var new_pause = pause_scene.instance()

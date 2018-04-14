@@ -71,7 +71,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Scale", "Trail" ]
 
-[node name="player" type="RigidBody2D" index="0"]
+[node name="player" type="RigidBody2D"]
 
 scale = Vector2( 0.4, 0.4 )
 input_pickable = false
@@ -165,24 +165,22 @@ autostart = false
 
 [node name="turbine_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
-scale = Vector2( 1, 1 )
 stream = ExtResource( 4 )
 volume_db = 0.0
 autoplay = true
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "sfx"
 area_mask = 1
 
 [node name="crash_sound" type="AudioStreamPlayer2D" parent="." index="6"]
 
-scale = Vector2( 1, 1 )
 stream = ExtResource( 5 )
 volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "sfx"
 area_mask = 1
 
 [node name="no_energy_sound" type="AudioStreamPlayer2D" parent="." index="7"]
@@ -192,7 +190,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "sfx"
 area_mask = 1
 
 [connection signal="body_entered" from="." to="." method="_on_player_body_entered"]

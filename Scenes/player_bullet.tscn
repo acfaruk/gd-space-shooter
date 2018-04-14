@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 4.43027, 27.0075 )
 
-[node name="player_bullet" type="RigidBody2D" index="0"]
+[node name="player_bullet" type="RigidBody2D"]
 
 z_index = -1
 input_pickable = true
@@ -79,7 +79,7 @@ volume_db = 1.0
 autoplay = true
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "sfx"
 area_mask = 1
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="4"]

@@ -98,7 +98,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "sfx"
 area_mask = 1
 
 [node name="explosion_particles" type="Particles2D" parent="." index="3"]
