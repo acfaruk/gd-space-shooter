@@ -22,7 +22,6 @@ func _physics_process(delta):
 	move_local_y(-speed)
 
 func _on_enemy_body_entered(body):
-	print(body)
 	if body is Bullet:
 		destroy()
 
