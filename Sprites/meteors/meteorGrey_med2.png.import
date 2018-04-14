@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/meteorGrey_small2.png-8409379bbcde9ac9515b4a7ab3a2e074.stex"
+path="res://.import/meteorGrey_med2.png-d314777e4366255914af6ac365efecec.stex"
 
 [deps]
 
-source_file="res://Sprites/meteorGrey_small2.png"
-source_md5="f6a8c4df1c3ab32e2b0ec9d427a8cbe4"
+source_file="res://Sprites/meteors/meteorGrey_med2.png"
+source_md5="636ea078485cfb78cbe65c0ad7a8148a"
 
-dest_files=[ "res://.import/meteorGrey_small2.png-8409379bbcde9ac9515b4a7ab3a2e074.stex" ]
-dest_md5="a606bd7de649705a739410bf6abb0f42"
+dest_files=[ "res://.import/meteorGrey_med2.png-d314777e4366255914af6ac365efecec.stex" ]
+dest_md5="1ef3642e6cf9c83a6149e5360437f3bd"
 
 [params]
 
