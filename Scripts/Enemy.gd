@@ -1,6 +1,9 @@
 extends RigidBody2D
 
 const Bullet = preload("res://Scripts/Bullet.gd")
+const Player = preload("res://Scripts/Player.gd")
+
+export (PackedScene) var explosion
 
 export (float) var speed
 
@@ -24,6 +27,11 @@ func _physics_process(delta):
 func _on_enemy_body_entered(body):
 	if body is Bullet:
 		destroy()
+	if body is Player:
+		destroy()
 
 func destroy():
+	var new_explosion = explosion.instance()
+	new_explosion.setup(position)
+	get_parent().add_child(new_explosion)
 	queue_free()
