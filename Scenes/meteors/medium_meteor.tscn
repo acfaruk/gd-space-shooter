@@ -3,12 +3,9 @@
 [ext_resource path="res://Scenes/meteors/meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/meteors/meteorGrey_med2.png" type="Texture" id=2]
 
-
 [node name="meteor" instance=ExtResource( 1 )]
 
 mass = 0.5
-medium_meteor_scene = null
-small_meteor_scene = null
 size = 1
 
 [node name="sprite" parent="." index="0"]

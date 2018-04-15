@@ -1,59 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Meteor.gd" type="Script" id=1]
-[ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
-
-[sub_resource type="Gradient" id=1]
-
-offsets = PoolRealArray( 0, 0.597633, 1 )
-colors = PoolColorArray( 0.761719, 0, 0, 1, 0.882813, 0.834749, 0.1138, 0.856353, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=2]
-
-flags = 4
-gradient = SubResource( 1 )
-width = 2048
-
-[sub_resource type="ParticlesMaterial" id=3]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 15.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 180.0
-flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 30.0
-initial_velocity_random = 0.0
-angular_velocity = 4.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 5.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 0.1
-scale_random = 0.0
-color_ramp = SubResource( 2 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
+[ext_resource path="res://Scenes/explosion.tscn" type="PackedScene" id=2]
 
 [node name="meteor" type="RigidBody2D"]
 
@@ -79,6 +27,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 medium_meteor_scene = null
 small_meteor_scene = null
+explosion = ExtResource( 2 )
 size = 0
 
 [node name="sprite" type="Sprite" parent="." index="0"]
@@ -91,40 +40,6 @@ scale = Vector2( 0.4, 0.4 )
 build_mode = 0
 polygon = PoolVector2Array(  )
 
-[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." index="2"]
-
-stream = ExtResource( 2 )
-volume_db = 0.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "sfx"
-area_mask = 1
-
-[node name="explosion_particles" type="Particles2D" parent="." index="3"]
-
-emitting = false
-amount = 100
-lifetime = 1.0
-one_shot = true
-preprocess = 0.0
-speed_scale = 2.0
-explosiveness = 1.0
-randomness = 1.0
-fixed_fps = 0
-fract_delta = false
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = false
-draw_order = 0
-process_material = SubResource( 3 )
-texture = ExtResource( 3 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
-
 [connection signal="body_entered" from="." to="." method="_on_meteor_body_entered"]
-
-[connection signal="finished" from="explosion_sound" to="." method="_on_explosion_sound_finished"]
 
 

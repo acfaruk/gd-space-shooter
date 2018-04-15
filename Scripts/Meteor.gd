@@ -9,6 +9,7 @@ const Bullet = preload("res://Scripts/Bullet.gd")
 #SCENES
 export (PackedScene) var medium_meteor_scene
 export (PackedScene) var small_meteor_scene
+export (PackedScene) var explosion
 
 #EXPORT
 export (SIZE) var size
@@ -55,12 +56,8 @@ func destroy():
 	queue_free()
 
 func explode():
-	$sprite.hide()
-	$shape.disabled = true
-	$explosion_particles.emitting = true
-	$explosion_sound.play()
 	get_parent().find_node("player").add_score(10)
-	
-func _on_explosion_sound_finished():
+	var new_explosion = explosion.instance()
+	new_explosion.setup(position)
+	get_parent().add_child(new_explosion)
 	destroy()
-
