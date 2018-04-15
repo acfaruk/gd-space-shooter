@@ -9,6 +9,7 @@
 
 medium_meteor_scene = ExtResource( 2 )
 small_meteor_scene = ExtResource( 3 )
+points = 5
 
 [node name="sprite" parent="." index="0"]
 

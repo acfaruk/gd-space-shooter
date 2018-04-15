@@ -26,8 +26,10 @@ func _physics_process(delta):
 
 func _on_enemy_body_entered(body):
 	if body is Bullet:
+		player.add_score(10)
 		destroy()
 	if body is Player:
+		player.add_health(-10)
 		destroy()
 
 func destroy():

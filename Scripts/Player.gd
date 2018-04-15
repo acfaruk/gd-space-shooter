@@ -22,7 +22,6 @@ var score = 0
 
 var is_energy_reloading = false
 
-
 func _physics_process(delta):
 	
 	look_at(get_global_mouse_position())
@@ -96,7 +95,7 @@ func _on_player_body_entered(body):
 
 func _on_energy_timer_timeout():
 	is_energy_reloading = true
-	
+
 #GROUP restartable
 func restart():
 	position = Vector2(0,0)

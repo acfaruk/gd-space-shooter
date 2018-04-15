@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/explosion.tscn" type="PackedScene" id=2]
 
-[node name="enemy" type="RigidBody2D" index="0"]
+[node name="enemy" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

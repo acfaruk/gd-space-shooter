@@ -13,6 +13,7 @@ export (PackedScene) var explosion
 
 #EXPORT
 export (SIZE) var size
+export (int) var points
 
 #VARS
 var speed = Vector2(0, 0)
@@ -56,7 +57,7 @@ func destroy():
 	queue_free()
 
 func explode():
-	get_parent().find_node("player").add_score(10)
+	get_parent().find_node("player").add_score(points)
 	var new_explosion = explosion.instance()
 	new_explosion.setup(position)
 	get_parent().add_child(new_explosion)
