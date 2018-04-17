@@ -4,7 +4,7 @@ extends RigidBody2D
 const Meteor = preload("res://Scripts/Meteor.gd")
 
 #SCENES
-const bullet_scene = preload("res://Scenes/player_bullet.tscn")
+export (PackedScene) var bullet_scene
 
 #EXPORTS
 export (float) var speed = 5
