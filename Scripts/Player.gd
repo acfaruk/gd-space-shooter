@@ -5,6 +5,7 @@ const Meteor = preload("res://Scripts/Meteor.gd")
 
 #SCENES
 export (PackedScene) var bullet_scene
+export (PackedScene) var info_text
 
 #EXPORTS
 export (float) var speed = 5
@@ -91,10 +92,16 @@ func _on_player_body_entered(body):
 		$crash_sound.play()
 		var crash_velocity = clamp((body.linear_velocity - linear_velocity).length(), 0, 800)/800
 		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
+		_create_info("- " + str(health_penalty) + "HP", Color(1,0,0))
 		add_health(-health_penalty)
 
 func _on_energy_timer_timeout():
 	is_energy_reloading = true
+
+func _create_info(info, color):
+	var new_info_text = info_text.instance()
+	new_info_text.setup(info, position, color)
+	get_parent().add_child(new_info_text)
 
 #GROUP restartable
 func restart():

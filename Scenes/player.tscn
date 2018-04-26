@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/player_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=4]
-[ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Audio/crash.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Audio/pepSound1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/effects/info_text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/particle.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=5]
+[ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/crash.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Audio/pepSound1.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Gradient" id=1]
 
@@ -96,6 +97,7 @@ angular_damp = -1.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 bullet_scene = ExtResource( 2 )
+info_text = ExtResource( 3 )
 speed = 5.0
 
 [node name="turbine_particles" type="Particles2D" parent="." index="0"]
@@ -116,7 +118,7 @@ visibility_rect = Rect2( 0, 0, 0, 0 )
 local_coords = false
 draw_order = 0
 process_material = SubResource( 5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -124,7 +126,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Trans
 
 [node name="sprite" type="Sprite" parent="." index="1"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="cam" type="Camera2D" parent="." index="2"]
@@ -167,7 +169,7 @@ autostart = false
 
 [node name="turbine_sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 autoplay = true
 max_distance = 2000.0
@@ -177,7 +179,7 @@ area_mask = 1
 
 [node name="crash_sound" type="AudioStreamPlayer2D" parent="." index="6"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = -5.0
 autoplay = false
 max_distance = 2000.0
@@ -187,7 +189,7 @@ area_mask = 1
 
 [node name="no_energy_sound" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0

@@ -10,6 +10,7 @@ const Bullet = preload("res://Scripts/Bullet.gd")
 export (PackedScene) var medium_meteor_scene
 export (PackedScene) var small_meteor_scene
 export (PackedScene) var explosion
+export (PackedScene) var info_text
 
 #EXPORT
 export (SIZE) var size
@@ -41,6 +42,11 @@ func _on_meteor_body_entered(body):
 	elif body is Bullet:
 		explode()
 
+func _create_info(info, color):
+	var new_info_text = info_text.instance()
+	new_info_text.setup(info, position, color)
+	get_parent().add_child(new_info_text)
+
 func shatter_to_pieces():
 	var medium_meteor = medium_meteor_scene.instance()
 	var medium_meteor2 = medium_meteor_scene.instance()
@@ -58,6 +64,7 @@ func destroy():
 
 func explode():
 	get_parent().find_node("player").add_score(points)
+	_create_info("+ " + str(points) + "P", Color(0,1,0))
 	var new_explosion = explosion.instance()
 	new_explosion.setup(position)
 	get_parent().add_child(new_explosion)

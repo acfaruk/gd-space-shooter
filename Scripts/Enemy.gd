@@ -4,6 +4,7 @@ const Bullet = preload("res://Scripts/Bullet.gd")
 const Player = preload("res://Scripts/Player.gd")
 
 export (PackedScene) var explosion
+export (PackedScene) var info_text
 
 export (float) var speed
 
@@ -27,10 +28,17 @@ func _physics_process(delta):
 func _on_enemy_body_entered(body):
 	if body is Bullet:
 		player.add_score(10)
+		_create_info("+ 10P", Color(0,1,0))
 		destroy()
 	if body is Player:
 		player.add_health(-10)
+		_create_info("- 10HP", Color(1,0,0))
 		destroy()
+
+func _create_info(info, color):
+	var new_info_text = info_text.instance()
+	new_info_text.setup(info, position, color)
+	get_parent().add_child(new_info_text)
 
 func destroy():
 	var new_explosion = explosion.instance()

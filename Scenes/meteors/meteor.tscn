@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Meteor.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/effects/explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/effects/info_text.tscn" type="PackedScene" id=3]
 
 [node name="meteor" type="RigidBody2D"]
 
@@ -28,7 +29,9 @@ _sections_unfolded = [ "Transform" ]
 medium_meteor_scene = null
 small_meteor_scene = null
 explosion = ExtResource( 2 )
+info_text = ExtResource( 3 )
 size = 0
+points = null
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
