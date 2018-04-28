@@ -46,7 +46,7 @@ func _create_info(info, color):
 	var new_info_text = info_text.instance()
 	new_info_text.setup(info, position, color)
 	get_parent().add_child(new_info_text)
-
+	
 func shatter_to_pieces():
 	var medium_meteor = medium_meteor_scene.instance()
 	var medium_meteor2 = medium_meteor_scene.instance()

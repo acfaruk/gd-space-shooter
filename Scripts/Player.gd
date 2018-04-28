@@ -2,6 +2,7 @@ extends RigidBody2D
 
 #SCRIPTS
 const Meteor = preload("res://Scripts/Meteor.gd")
+const PickUp = preload("res://Scripts/pickups/PickUp.gd")
 
 #SCENES
 export (PackedScene) var bullet_scene
@@ -74,6 +75,7 @@ func stop_turbine():
 
 func add_health(amount):
 	health = clamp(health + amount, 0, 100)
+	_create_info(str(amount) + "HP", Color(1,0,0) if amount < 0 else Color(0,1,0))
 	emit_signal("health_changed", health)
 	if health == 0:
 		emit_signal("death", score)
@@ -92,8 +94,9 @@ func _on_player_body_entered(body):
 		$crash_sound.play()
 		var crash_velocity = clamp((body.linear_velocity - linear_velocity).length(), 0, 800)/800
 		var health_penalty = floor(lerp(0, 30, crash_velocity * body.mass))
-		_create_info("- " + str(health_penalty) + "HP", Color(1,0,0))
 		add_health(-health_penalty)
+	elif body is PickUp:
+		body.pickup(self)
 
 func _on_energy_timer_timeout():
 	is_energy_reloading = true

@@ -32,7 +32,6 @@ func _on_enemy_body_entered(body):
 		destroy()
 	if body is Player:
 		player.add_health(-10)
-		_create_info("- 10HP", Color(1,0,0))
 		destroy()
 
 func _create_info(info, color):

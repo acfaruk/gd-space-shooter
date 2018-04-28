@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/gui/hud.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/back.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/gui/settings_sub.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/EnemyManager.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/enemies/simple_enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/PickUpManager.gd" type="Script" id=12]
 
 [node name="main" type="Node" index="0"]
 
@@ -86,6 +87,17 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
+[node name="pickup_manager" type="Node" parent="." index="6"]
+
+script = ExtResource( 12 )
+
+[node name="pickup_timer" type="Timer" parent="pickup_manager" index="0"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = false
+autostart = true
+
 [connection signal="death" from="player" to="game_manager" method="_on_player_death"]
 
 [connection signal="energy_changed" from="player" to="hud" method="_on_player_energy_changed"]
@@ -95,5 +107,7 @@ autostart = true
 [connection signal="score_changed" from="player" to="hud" method="_on_player_score_changed"]
 
 [connection signal="timeout" from="enemy_manager/spawn_timer" to="enemy_manager" method="_on_spawn_timer_timeout"]
+
+[connection signal="timeout" from="pickup_manager/pickup_timer" to="pickup_manager" method="_on_pickup_timer_timeout"]
 
 
