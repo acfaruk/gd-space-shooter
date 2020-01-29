@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/meteorGrey_small2.png-d01d1c9f450e67d4a5656ff644fbb60a.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/meteors/meteorGrey_small2.png"
-source_md5="f6a8c4df1c3ab32e2b0ec9d427a8cbe4"
-
 dest_files=[ "res://.import/meteorGrey_small2.png-d01d1c9f450e67d4a5656ff644fbb60a.stex" ]
-dest_md5="a606bd7de649705a739410bf6abb0f42"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

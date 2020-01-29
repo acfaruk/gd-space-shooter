@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/playerShip1_orange.png-af8348495392aad886bf15696cabac62.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/playerShip1_orange.png"
-source_md5="80e5b2b72b8b8a08cf4464b96ced5003"
-
 dest_files=[ "res://.import/playerShip1_orange.png-af8348495392aad886bf15696cabac62.stex" ]
-dest_md5="873afb27d227b3f4679a90dad63265f0"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

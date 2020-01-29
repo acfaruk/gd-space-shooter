@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/energy_bar_bg.png-8bc321bb9ff74341c4299b7972292716.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/hud/energy_bar_bg.png"
-source_md5="22f4561e13359dc957212722f91f8bdd"
-
 dest_files=[ "res://.import/energy_bar_bg.png-8bc321bb9ff74341c4299b7972292716.stex" ]
-dest_md5="5c00e6fb7b08db284178f07c29cc50be"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

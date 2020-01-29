@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/lifebar_bg.png-536b49c0e2a052cddd4ce7885a34058d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/hud/lifebar_bg.png"
-source_md5="1e7fa5993c709fb4833a7bf17c71fcac"
-
 dest_files=[ "res://.import/lifebar_bg.png-536b49c0e2a052cddd4ce7885a34058d.stex" ]
-dest_md5="46aa47d32114460f037fb4deafc71201"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

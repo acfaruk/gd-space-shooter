@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/enemyBlack1.png-0b36d2856c0efa4fe6b320697d3d98db.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/enemies/enemyBlack1.png"
-source_md5="7d7300c0a5a59378e449f7ca6672f4eb"
-
 dest_files=[ "res://.import/enemyBlack1.png-0b36d2856c0efa4fe6b320697d3d98db.stex" ]
-dest_md5="4f5a368f18c604f2a3c439a6ab28fec7"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
