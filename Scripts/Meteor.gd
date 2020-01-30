@@ -27,8 +27,8 @@ func _ready():
 	contact_monitor = true
 	contacts_reported = 10
 
-func setup(pos, meteor_manager, dist = 0):
-	self.meteor_manager = meteor_manager
+func setup(pos, meteor_mgr, dist = 0):
+	self.meteor_manager = meteor_mgr
 	self.meteor_manager.add_meteor(self)
 	position = pos
 	rotation_degrees = randi() % 360
@@ -56,7 +56,7 @@ func shatter_to_pieces():
 	
 	for meteor in meteors:
 		meteor.setup(position, meteor_manager)
-		get_parent().add_child(meteor)
+		get_parent().call_deferred("add_child", meteor)
 
 func destroy():
 	meteor_manager.remove_meteor(self)

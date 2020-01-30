@@ -24,7 +24,7 @@ var score = 0
 
 var is_energy_reloading = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	look_at(get_global_mouse_position())
 	rotate(PI/2)

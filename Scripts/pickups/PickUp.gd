@@ -8,7 +8,7 @@ func pickup(player):
 	$sprite.hide()
 	pickup_specific(player)
 	
-func pickup_specific(player):
+func pickup_specific(_player):
 	pass
 
 func _on_sound_finished():

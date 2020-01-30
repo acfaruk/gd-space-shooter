@@ -15,7 +15,7 @@ var player
 func _ready():
 	player = get_parent().find_node("player")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	despawn_meteors()
 	spawn_meteors()
 

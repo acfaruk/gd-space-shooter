@@ -9,9 +9,10 @@ var is_game_over = false
 
 func _input(event):
 	if event.is_action_pressed("pause") && !is_game_over:
-		var pause = get_parent().get_node("pause")
+		var pause = get_parent().has_node("pause")
 		if pause:
-			pause.close()
+			var current_pause = get_parent().get_node("pause")
+			current_pause.close()
 		else:
 			var new_pause = pause_scene.instance()
 			get_parent().add_child(new_pause)

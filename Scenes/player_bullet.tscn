@@ -1,94 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/laserRed01.png" type="Texture" id=2]
 [ext_resource path="res://Audio/laser7.ogg" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
 
-custom_solver_bias = 0.0
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4.43027, 27.0075 )
 
 [node name="player_bullet" type="RigidBody2D"]
-
 z_index = -1
 input_pickable = true
-collision_layer = 1
-collision_mask = 1
 mode = 3
-mass = 1.0
-friction = 0.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-speed = 10.0
 
-[node name="sprite" type="Sprite" parent="." index="0"]
-
+[node name="sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="light" type="Light2D" parent="." index="1"]
-
+[node name="light" type="Light2D" parent="."]
 scale = Vector2( 0.4, 0.4 )
-enabled = true
-editor_only = false
 texture = ExtResource( 2 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
 color = Color( 1, 0.03125, 0.03125, 1 )
 energy = 3.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Transform" ]
 
-[node name="timer" type="Timer" parent="." index="2"]
-
-process_mode = 1
+[node name="timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="laser_sound" type="AudioStreamPlayer2D" parent="." index="3"]
-
+[node name="laser_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 1.0
 autoplay = true
-max_distance = 2000.0
-attenuation = 1.0
 bus = "sfx"
-area_mask = 1
 
-[node name="collision_shape" type="CollisionShape2D" parent="." index="4"]
-
+[node name="collision_shape" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.4, 0.4 )
-shape = SubResource( 1 )
-
+shape = SubResource( 2 )
 [connection signal="body_shape_entered" from="." to="." method="_on_player_bullet_body_shape_entered"]
-
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
-
-

@@ -4,11 +4,7 @@
 [ext_resource path="res://Fonts/headings.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "move_up"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("label:rect_position")
 tracks/0/interp = 1
@@ -35,45 +31,17 @@ tracks/1/keys = {
 }
 
 [node name="info_text" type="Node2D"]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="anim_player" type="AnimationPlayer" parent="." index="0"]
-
-root_node = NodePath("..")
+[node name="anim_player" type="AnimationPlayer" parent="."]
 autoplay = "move_up"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
 anims/move_up = SubResource( 1 )
-blend_times = [  ]
 
-[node name="label" type="Label" parent="." index="1"]
-
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="label" type="Label" parent="."]
 margin_left = -30.0
-margin_top = -50.0
 margin_right = 66.0
-margin_bottom = 145.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
+margin_bottom = 195.0
 custom_fonts/font = ExtResource( 2 )
 text = "+ 100"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
-
 [connection signal="animation_finished" from="anim_player" to="." method="_on_anim_player_animation_finished"]
-
-

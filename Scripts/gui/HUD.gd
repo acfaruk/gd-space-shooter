@@ -27,11 +27,11 @@ func set_score(value):
 func get_score():
 	return int(score.text)
 
-func _on_player_health_changed(health):
-	set_health(health)
+func _on_player_health_changed(h):
+	set_health(h)
 
-func _on_player_energy_changed(energy):
-	set_energy(energy)
+func _on_player_energy_changed(e):
+	set_energy(e)
 
-func _on_player_score_changed(score):
-	set_score(score)
+func _on_player_score_changed(s):
+	set_score(s)

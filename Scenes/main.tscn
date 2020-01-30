@@ -13,101 +13,61 @@
 [ext_resource path="res://Scenes/enemies/simple_enemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/PickUpManager.gd" type="Script" id=12]
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
-[node name="hud" parent="." index="0" instance=ExtResource( 1 )]
+[node name="hud" parent="." instance=ExtResource( 1 )]
 
-[node name="parallax_back" type="ParallaxBackground" parent="." index="1"]
-
+[node name="parallax_back" type="ParallaxBackground" parent="."]
 layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
-_sections_unfolded = [ "Scroll" ]
 
-[node name="layer_1" type="ParallaxLayer" parent="parallax_back" index="0"]
-
-motion_scale = Vector2( 1, 1 )
-motion_offset = Vector2( 0, 0 )
+[node name="layer_1" type="ParallaxLayer" parent="parallax_back"]
 motion_mirroring = Vector2( 2048, 1536 )
-_sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="back" type="Sprite" parent="parallax_back/layer_1" index="0"]
-
+[node name="back" type="Sprite" parent="parallax_back/layer_1"]
 texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Offset", "Region", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player" parent="." index="2" groups=[
+[node name="player" parent="." groups=[
 "restartable",
 ] instance=ExtResource( 3 )]
 
-[node name="meteor_manager" type="Node" parent="." index="3" groups=[
+[node name="meteor_manager" type="Node" parent="." groups=[
 "restartable",
 ]]
-
 script = ExtResource( 4 )
 meteor_scene = ExtResource( 5 )
-max_meteor_distance_squared = 4000000
-min_meteor_distance = 1050
-max_meteors = 30
 
-[node name="game_manager" type="Node" parent="." index="4" groups=[
+[node name="game_manager" type="Node" parent="." groups=[
 "restartable",
 ]]
-
 pause_mode = 2
 script = ExtResource( 6 )
-_sections_unfolded = [ "Pause" ]
 game_over_scene = ExtResource( 7 )
 pause_scene = ExtResource( 8 )
 settings_scene = ExtResource( 9 )
 
-[node name="enemy_manager" type="Node" parent="." index="5" groups=[
+[node name="enemy_manager" type="Node" parent="." groups=[
 "restartable",
 ]]
-
 script = ExtResource( 10 )
 simple_enemy = ExtResource( 11 )
 
-[node name="spawn_timer" type="Timer" parent="enemy_manager" index="0"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
+[node name="spawn_timer" type="Timer" parent="enemy_manager"]
 autostart = true
 
-[node name="pickup_manager" type="Node" parent="." index="6"]
-
+[node name="pickup_manager" type="Node" parent="."]
 script = ExtResource( 12 )
 
-[node name="pickup_timer" type="Timer" parent="pickup_manager" index="0"]
-
-process_mode = 1
+[node name="pickup_timer" type="Timer" parent="pickup_manager"]
 wait_time = 4.0
-one_shot = false
 autostart = true
-
 [connection signal="death" from="player" to="game_manager" method="_on_player_death"]
-
 [connection signal="energy_changed" from="player" to="hud" method="_on_player_energy_changed"]
-
 [connection signal="health_changed" from="player" to="hud" method="_on_player_health_changed"]
-
 [connection signal="score_changed" from="player" to="hud" method="_on_player_score_changed"]
-
 [connection signal="timeout" from="enemy_manager/spawn_timer" to="enemy_manager" method="_on_spawn_timer_timeout"]
-
 [connection signal="timeout" from="pickup_manager/pickup_timer" to="pickup_manager" method="_on_pickup_timer_timeout"]
-
-

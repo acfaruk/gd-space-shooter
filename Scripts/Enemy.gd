@@ -20,7 +20,7 @@ func setup(pos, dist = 1000):
 	rotation_degrees = randi() % 360
 	move_local_y(-dist)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	look_at(player.position)
 	rotate(PI/2)
 	move_local_y(-speed)
