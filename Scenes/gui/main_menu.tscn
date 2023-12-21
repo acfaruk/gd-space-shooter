@@ -70,6 +70,7 @@ text = "Quit"
 
 [node name="settings_sub" parent="." instance=ExtResource( 6 )]
 visible = false
+
 [connection signal="pressed" from="menu/vbox/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="menu/vbox/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="menu/vbox/quit" to="." method="_on_quit_pressed"]
