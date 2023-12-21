@@ -1,0 +1,9 @@
+res://default_env.tres
+res://Scenes/gui/main_menu.tscn
+res://Scenes/main_music.tscn
+res://Scenes/main.tscn
+res://Scripts/Meteor.gd
+res://Scripts/MeteorManager.gd
+res://Scenes/meteors/meteor.tscn
+res://Scenes/meteors/big_meteor.tscn
+res://Scenes/gui/settings_sub.tscn

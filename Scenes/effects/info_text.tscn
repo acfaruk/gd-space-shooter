@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/effects/InfoText.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/headings.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/headings.tres" type="FontFile" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "move_up"
 tracks/0/type = "value"
-tracks/0/path = NodePath("label:rect_position")
+tracks/0/path = NodePath("label:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -30, 0 ), Vector2( -30, -50 ) ]
 }
@@ -24,8 +24,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 4, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 4, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -38,10 +38,10 @@ autoplay = "move_up"
 anims/move_up = SubResource( 1 )
 
 [node name="label" type="Label" parent="."]
-margin_left = -30.0
-margin_right = 66.0
-margin_bottom = 195.0
-custom_fonts/font = ExtResource( 2 )
+offset_left = -30.0
+offset_right = 66.0
+offset_bottom = 195.0
+theme_override_fonts/font = ExtResource( 2 )
 text = "+ 100"
 align = 1
 [connection signal="animation_finished" from="anim_player" to="." method="_on_anim_player_animation_finished"]

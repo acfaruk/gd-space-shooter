@@ -1,19 +1,19 @@
 extends Node
 
 #SCENES
-export (PackedScene) var meteor_scene
+@export var meteor_scene: PackedScene
 
 #EXPORT
-export (int) var max_meteor_distance_squared = 2000*2000
-export (int) var min_meteor_distance = 1050
-export (int) var max_meteors = 30
+@export var max_meteor_distance_squared: int = 1500*1500
+@export var min_meteor_distance: int = 900
+@export var max_meteors: int = 50
 
 #VARS
 var meteors = []
 var player
 
 func _ready():
-	player = get_parent().find_node("player")
+	player = get_parent().find_child("player")
 
 func _physics_process(_delta):
 	despawn_meteors()
@@ -23,7 +23,7 @@ func _get_spawn_position():
 	if player != null:
 		return player.position
 	else:
-		return OS.window_size / 2
+		return get_window().size / 2
 
 func despawn_meteors():
 	for meteor in meteors:
@@ -32,8 +32,8 @@ func despawn_meteors():
 
 func spawn_meteors():
 	if meteors.size() < max_meteors:
-		var meteor = meteor_scene.instance()
-		var distance = randi() % 200 + min_meteor_distance
+		var meteor = meteor_scene.instantiate()
+		var distance = randi() % 100 + min_meteor_distance
 		meteor.setup(_get_spawn_position(), self, distance)
 		get_parent().add_child(meteor)
 		

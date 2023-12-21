@@ -16,6 +16,6 @@ func _on_pickup_timer_timeout():
 	var size = get_viewport().size
 	var x = (randi() % int(size.x)) - (int(size.x/2)) + player.position.x
 	var y = (randi() % int(size.y)) - (int(size.y/2)) + player.position.y
-	var random_pickup = random_pickup_scene.instance()
+	var random_pickup = random_pickup_scene.instantiate()
 	random_pickup.setup(Vector2(x,y))
 	get_parent().add_child(random_pickup)

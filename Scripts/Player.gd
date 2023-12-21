@@ -5,11 +5,11 @@ const Meteor = preload("res://Scripts/Meteor.gd")
 const PickUp = preload("res://Scripts/pickups/PickUp.gd")
 
 #SCENES
-export (PackedScene) var bullet_scene
-export (PackedScene) var info_text
+@export var bullet_scene: PackedScene
+@export var info_text: PackedScene
 
 #EXPORTS
-export (float) var speed = 5
+@export var speed: float = 5
 
 signal health_changed(health)
 signal energy_changed(energy)
@@ -55,7 +55,7 @@ func _physics_process(_delta):
 	
 func shoot():
 	if energy > 0:
-		var bullet = bullet_scene.instance()
+		var bullet = bullet_scene.instantiate()
 		bullet.setup(position, rotation, 35)
 		get_parent().add_child(bullet)
 		is_energy_reloading = false
@@ -102,7 +102,7 @@ func _on_energy_timer_timeout():
 	is_energy_reloading = true
 
 func _create_info(info, color):
-	var new_info_text = info_text.instance()
+	var new_info_text = info_text.instantiate()
 	new_info_text.setup(info, position, color)
 	get_parent().add_child(new_info_text)
 

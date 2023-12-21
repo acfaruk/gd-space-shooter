@@ -1,48 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://bwmb2qgie5uth"]
 
-[ext_resource path="res://Scripts/Meteor.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/effects/explosion.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/effects/info_text.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://Scripts/Meteor.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/effects/explosion.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/effects/info_text.tscn" id="3"]
 
 [node name="meteor" type="RigidBody2D"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-medium_meteor_scene = null
-small_meteor_scene = null
-explosion = ExtResource( 2 )
-info_text = ExtResource( 3 )
-size = 0
-points = null
+script = ExtResource("1")
+explosion = ExtResource("2")
+info_text = ExtResource("3")
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
 
-scale = Vector2( 0.4, 0.4 )
-
-[node name="shape" type="CollisionPolygon2D" parent="." index="1"]
-
-scale = Vector2( 0.4, 0.4 )
-build_mode = 0
-polygon = PoolVector2Array(  )
+[node name="shape" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.4, 0.4)
 
 [connection signal="body_entered" from="." to="." method="_on_meteor_body_entered"]
-
-

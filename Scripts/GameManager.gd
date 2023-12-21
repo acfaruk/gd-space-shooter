@@ -1,9 +1,9 @@
 extends Node
 
 #SCENES
-export (PackedScene) var game_over_scene
-export (PackedScene) var pause_scene
-export (PackedScene) var settings_scene
+@export var game_over_scene: PackedScene
+@export var pause_scene: PackedScene
+@export var settings_scene: PackedScene
 
 var is_game_over = false
 
@@ -14,13 +14,13 @@ func _input(event):
 			var current_pause = get_parent().get_node("pause")
 			current_pause.close()
 		else:
-			var new_pause = pause_scene.instance()
+			var new_pause = pause_scene.instantiate()
 			get_parent().add_child(new_pause)
 
 func game_over(final_score):
 	is_game_over = true
 	get_tree().paused = true
-	var game_over = game_over_scene.instance()
+	var game_over = game_over_scene.instantiate()
 	game_over.setup(final_score)
 	get_parent().add_child(game_over)
 

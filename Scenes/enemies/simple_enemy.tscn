@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/enemies/enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/enemies/enemyBlack1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/enemies/enemyBlack1.png" type="Texture2D" id=2]
 
 [node name="simple_enemy" instance=ExtResource( 1 )]
 speed = 5.0
@@ -13,4 +13,4 @@ texture = ExtResource( 2 )
 
 [node name="shape" parent="." index="1"]
 rotation = 3.14159
-polygon = PoolVector2Array( 10.026, 15.6824, 18.2361, -6.50349, 11.4048, -16.8444, 4.26022, -13.7734, 3.38281, -9.44908, -3.82447, -9.51175, -4.2005, -13.8361, -11.7838, -16.9071, -18.4271, -6.37815, -10.0917, 16.3091, -4.01249, 15.0557, -7.33411, 4.33877, -6.20601, 3.90007, -5.01524, 6.2816, 4.69893, 6.53229, 5.95237, 4.08808, 6.95512, 4.52679, 4.13488, 14.5543 )
+polygon = PackedVector2Array( 10.026, 15.6824, 18.2361, -6.50349, 11.4048, -16.8444, 4.26022, -13.7734, 3.38281, -9.44908, -3.82447, -9.51175, -4.2005, -13.8361, -11.7838, -16.9071, -18.4271, -6.37815, -10.0917, 16.3091, -4.01249, 15.0557, -7.33411, 4.33877, -6.20601, 3.90007, -5.01524, 6.2816, 4.69893, 6.53229, 5.95237, 4.08808, 6.95512, 4.52679, 4.13488, 14.5543 )

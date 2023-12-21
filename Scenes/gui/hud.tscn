@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/gui/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/hud/lifebar_bg.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/hud/lifebar_fill.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/hud/energy_bar_bg.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/hud/energy_bar_fill.png" type="Texture" id=5]
-[ext_resource path="res://Fonts/info.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Sprites/hud/lifebar_bg.png" type="Texture2D" id=2]
+[ext_resource path="res://Sprites/hud/lifebar_fill.png" type="Texture2D" id=3]
+[ext_resource path="res://Sprites/hud/energy_bar_bg.png" type="Texture2D" id=4]
+[ext_resource path="res://Sprites/hud/energy_bar_fill.png" type="Texture2D" id=5]
+[ext_resource path="res://Fonts/info.tres" type="FontFile" id=6]
 
 [node name="hud" type="CanvasLayer"]
 
@@ -22,10 +22,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_right = -10.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_right = -10.0
+offset_bottom = 16.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -38,11 +38,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 8.0
-margin_right = 1014.0
-margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_left = 8.0
+offset_right = 1014.0
+offset_bottom = 73.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -56,10 +56,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 501.0
-margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_right = 501.0
+offset_bottom = 73.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -67,16 +67,16 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
-[node name="health" type="TextureProgress" parent="container/hbox_main/vbox_left" index="0"]
+[node name="health" type="TextureProgressBar" parent="container/hbox_main/vbox_left" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 501.0
-margin_bottom = 39.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_right = 501.0
+offset_bottom = 39.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -96,17 +96,17 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
-[node name="energy" type="TextureProgress" parent="container/hbox_main/vbox_left" index="1"]
+[node name="energy" type="TextureProgressBar" parent="container/hbox_main/vbox_left" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 43.0
-margin_right = 501.0
-margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_top = 43.0
+offset_right = 501.0
+offset_bottom = 73.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -132,11 +132,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 505.0
-margin_right = 1006.0
-margin_bottom = 73.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_left = 505.0
+offset_right = 1006.0
+offset_bottom = 73.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -150,15 +150,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 501.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
+offset_right = 501.0
+offset_bottom = 19.0
+pivot_offset = Vector2( 0, 0 )
+clip_contents = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+theme_override_fonts/font = ExtResource( 6 )
 text = "0"
 align = 2
 uppercase = true

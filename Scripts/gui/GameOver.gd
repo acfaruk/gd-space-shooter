@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func setup(final_score):
-	find_node("score").text = "Your Score: " + str(final_score)
+	find_child("score").text = "Your Score: " + str(final_score)
 
 func _on_restart_pressed():
 	get_tree().call_group("restartable", "restart");

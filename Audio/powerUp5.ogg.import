@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/powerUp5.ogg-4f97eebbd8c26392b74e67318fb31d77.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dfqoxxurpsmpt"
+path="res://.godot/imported/powerUp5.ogg-4f97eebbd8c26392b74e67318fb31d77.oggvorbisstr"
 
 [deps]
 
 source_file="res://Audio/powerUp5.ogg"
-dest_files=[ "res://.import/powerUp5.ogg-4f97eebbd8c26392b74e67318fb31d77.oggstr" ]
+dest_files=["res://.godot/imported/powerUp5.ogg-4f97eebbd8c26392b74e67318fb31d77.oggvorbisstr"]
 
 [params]
 
 loop=false
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

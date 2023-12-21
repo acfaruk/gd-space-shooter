@@ -3,17 +3,17 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/player_bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/effects/info_text.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/particle.png" type="Texture2D" id=4]
+[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture2D" id=5]
 [ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/crash.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/pepSound1.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0.136095, 0.609467, 1 )
-colors = PoolColorArray( 0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0 )
+offsets = PackedFloat32Array( 0.136095, 0.609467, 1 )
+colors = PackedColorArray( 0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
 
 [sub_resource type="Curve" id=3]
@@ -22,7 +22,7 @@ _data = [ Vector2( 0, 0.199219 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0 ), 0.0, 0.
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id=5]
 flag_disable_z = true
 spread = 10.0
 gravity = Vector3( 0, 0, 0 )
@@ -36,14 +36,14 @@ color_ramp = SubResource( 2 )
 [node name="player" type="RigidBody2D"]
 scale = Vector2( 0.4, 0.4 )
 mode = 3
-contacts_reported = 5
+max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource( 1 )
 bullet_scene = ExtResource( 2 )
 info_text = ExtResource( 3 )
 speed = 4.5
 
-[node name="turbine_particles" type="Particles2D" parent="."]
+[node name="turbine_particles" type="GPUParticles2D" parent="."]
 position = Vector2( -0.467885, 40.7217 )
 rotation = 1.5708
 amount = 300
@@ -53,20 +53,20 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource( 5 )
 
 [node name="cam" type="Camera2D" parent="."]
 current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-drag_margin_left = 0.1
-drag_margin_top = 0.1
-drag_margin_right = 0.1
-drag_margin_bottom = 0.1
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
 
 [node name="collision_shape" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444 )
+polygon = PackedVector2Array( 6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444 )
 
 [node name="energy_timer" type="Timer" parent="."]
 wait_time = 0.75

@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://burbmdksh5rnm"]
+
+[ext_resource type="Script" path="res://Scripts/gui/MainMenu.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/MeteorManager.gd" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/meteors/big_meteor.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://cvlbi51mtg0qv" path="res://Sprites/back.png" id="4_pmr3b"]
+[ext_resource type="FontFile" path="res://Fonts/headings.tres" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/gui/settings_sub.tscn" id="6"]
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="back" type="Node" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="back"]
+position = Vector2(1024, 767)
+texture = ExtResource("4_pmr3b")
+
+[node name="meteor_manager" type="Node" parent="back"]
+script = ExtResource("3")
+meteor_scene = ExtResource("4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="menu" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="menu"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="title" type="Label" parent="menu/vbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 39
+text = "gd-space-shooter"
+horizontal_alignment = 1
+
+[node name="play" type="Button" parent="menu/vbox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play"
+
+[node name="settings" type="Button" parent="menu/vbox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+
+[node name="quit" type="Button" parent="menu/vbox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+
+[node name="settings_sub" parent="." instance=ExtResource("6")]
+visible = false
+anchors_preset = 15
+
+[connection signal="pressed" from="menu/vbox/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="menu/vbox/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu/vbox/quit" to="." method="_on_quit_pressed"]

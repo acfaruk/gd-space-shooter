@@ -5,9 +5,9 @@ var energy
 var score
 
 func _ready():
-	health = find_node("health")
-	energy = find_node("energy")
-	score = find_node("score")
+	health = find_child("health")
+	energy = find_child("energy")
+	score = find_child("score")
 
 func set_health(value):
 	health.value = value

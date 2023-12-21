@@ -12,6 +12,6 @@ func change_to_scene(scene):
 	var _result
 	match scene:
 		SCENE.MAIN:
-			_result = get_tree().change_scene_to(main_scene)
+			_result = get_tree().change_scene_to_packed(main_scene)
 		SCENE.MAIN_MENU:
-			_result = get_tree().change_scene_to(main_menu_scene)
+			_result = get_tree().change_scene_to_packed(main_menu_scene)

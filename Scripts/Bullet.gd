@@ -4,11 +4,11 @@ extends RigidBody2D
 const PickUp = preload("res://Scripts/pickups/PickUp.gd")
 
 #EXPORTS
-export (float) var speed = 10.0
+@export var speed: float = 10.0
 
 func _ready():
 	contact_monitor = true
-	contacts_reported = 1
+	max_contacts_reported = 1
 
 func setup(pos, rot = 0, dist = 0):
 	position = pos

@@ -16,8 +16,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.75, 0.75 ), Vector2( 1.5, 1.5 ) ]
 }
@@ -35,14 +35,14 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
-[node name="sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" type="Sprite2D" parent="." index="0"]
 
 [node name="shape" type="CollisionPolygon2D" parent="." index="1"]
 
 build_mode = 0
-polygon = PoolVector2Array(  )
+polygon = PackedVector2Array(  )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 

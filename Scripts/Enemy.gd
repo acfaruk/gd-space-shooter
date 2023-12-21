@@ -3,17 +3,17 @@ extends RigidBody2D
 const Bullet = preload("res://Scripts/Bullet.gd")
 const Player = preload("res://Scripts/Player.gd")
 
-export (PackedScene) var explosion
-export (PackedScene) var info_text
+@export var explosion: PackedScene
+@export var info_text: PackedScene
 
-export (float) var speed
+@export var speed: float
 
 var player
 
 func _ready():
-	player = get_parent().find_node("player")
+	player = get_parent().find_child("player")
 	contact_monitor = true
-	contacts_reported = 10
+	max_contacts_reported = 10
 
 func setup(pos, dist = 1000):
 	position = pos
@@ -35,12 +35,12 @@ func _on_enemy_body_entered(body):
 		destroy()
 
 func _create_info(info, color):
-	var new_info_text = info_text.instance()
+	var new_info_text = info_text.instantiate()
 	new_info_text.setup(info, position, color)
 	get_parent().add_child(new_info_text)
 
 func destroy():
-	var new_explosion = explosion.instance()
+	var new_explosion = explosion.instantiate()
 	new_explosion.setup(position)
 	get_parent().add_child(new_explosion)
 	queue_free()

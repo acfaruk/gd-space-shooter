@@ -4,8 +4,8 @@ var music_slider
 var sfx_slider
 
 func _ready():
-	music_slider = find_node("music_slider")
-	sfx_slider = find_node("sfx_slider")
+	music_slider = find_child("music_slider")
+	sfx_slider = find_child("sfx_slider")
 	music_slider.value = AudioServer.get_bus_volume_db(1)
 	sfx_slider.value = AudioServer.get_bus_volume_db(2)
 

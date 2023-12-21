@@ -7,25 +7,26 @@ enum SIZE {BIG, MEDIUM, SMALL}
 const Bullet = preload("res://Scripts/Bullet.gd")
 
 #SCENES
-export (PackedScene) var medium_meteor_scene
-export (PackedScene) var small_meteor_scene
-export (PackedScene) var explosion
-export (PackedScene) var info_text
+@export var medium_meteor_scene: PackedScene
+@export var small_meteor_scene: PackedScene
+@export var explosion: PackedScene
+@export var info_text: PackedScene
 
 #EXPORT
-export (SIZE) var size
-export (int) var points
+@export var size: SIZE
+@export var points: int
 
 #VARS
 var speed = Vector2(0, 0)
 var meteor_manager = null
 
 func _ready():
-	speed.x = randi() % 10 - 5
-	speed.y = randi() % 10 - 5
-	apply_impulse(Vector2(0, 0), speed*75)
+	speed.x = randf_range(-10, 10)
+	speed.y = randf_range(-10, 10)
+	apply_impulse(speed*30)
+	apply_torque_impulse(randf())
 	contact_monitor = true
-	contacts_reported = 10
+	max_contacts_reported = 10
 
 func setup(pos, meteor_mgr, dist = 0):
 	self.meteor_manager = meteor_mgr
@@ -43,14 +44,14 @@ func _on_meteor_body_entered(body):
 		explode()
 
 func _create_info(info, color):
-	var new_info_text = info_text.instance()
+	var new_info_text = info_text.instantiate()
 	new_info_text.setup(info, position, color)
 	get_parent().add_child(new_info_text)
 	
 func shatter_to_pieces():
-	var medium_meteor = medium_meteor_scene.instance()
-	var medium_meteor2 = medium_meteor_scene.instance()
-	var small_meteor = small_meteor_scene.instance()
+	var medium_meteor = medium_meteor_scene.instantiate()
+	var medium_meteor2 = medium_meteor_scene.instantiate()
+	var small_meteor = small_meteor_scene.instantiate()
 	
 	var meteors = [medium_meteor, medium_meteor2, small_meteor]
 	
@@ -63,9 +64,9 @@ func destroy():
 	queue_free()
 
 func explode():
-	get_parent().find_node("player").add_score(points)
+	get_parent().find_child("player").add_score(points)
 	_create_info("+ " + str(points) + "P", Color(0,1,0))
-	var new_explosion = explosion.instance()
+	var new_explosion = explosion.instantiate()
 	new_explosion.setup(position)
 	get_parent().add_child(new_explosion)
 	destroy()

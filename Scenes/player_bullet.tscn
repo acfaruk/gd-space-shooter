@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/laserRed01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/laserRed01.png" type="Texture2D" id=2]
 [ext_resource path="res://Audio/laser7.ogg" type="AudioStream" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -17,11 +17,11 @@ mode = 3
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="light" type="Light2D" parent="."]
+[node name="light" type="PointLight2D" parent="."]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 color = Color( 1, 0.03125, 0.03125, 1 )

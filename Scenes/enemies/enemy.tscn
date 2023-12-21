@@ -8,13 +8,13 @@
 mode = 3
 mass = 0.01
 gravity_scale = 0.0
-contacts_reported = 10
+max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource( 1 )
 explosion = ExtResource( 2 )
 info_text = ExtResource( 3 )
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 
 [node name="shape" type="CollisionPolygon2D" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_enemy_body_entered"]

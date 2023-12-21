@@ -2,20 +2,20 @@
 
 [ext_resource path="res://Scripts/effects/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Sprites/particle.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/particle.png" type="Texture2D" id=3]
 
 [sub_resource type="Gradient" id=1]
 
-offsets = PoolRealArray( 0, 0.597633, 1 )
-colors = PoolColorArray( 0.761719, 0, 0, 1, 0.882813, 0.834749, 0.1138, 0.856353, 1, 1, 1, 0 )
+offsets = PackedFloat32Array( 0, 0.597633, 1 )
+colors = PackedColorArray( 0.761719, 0, 0, 1, 0.882813, 0.834749, 0.1138, 0.856353, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture2D" id=2]
 
 flags = 4
 gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticleProcessMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -53,7 +53,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape3D", "Initial Velocity", "Linear Accel", "Radial Accel", "Scale", "Spread" ]
 
 [node name="explosion" type="Node2D" index="0"]
 
@@ -69,7 +69,7 @@ attenuation = 1.0
 bus = "sfx"
 area_mask = 1
 
-[node name="explosion_particles" type="Particles2D" parent="." index="1"]
+[node name="explosion_particles" type="GPUParticles2D" parent="." index="1"]
 
 emitting = false
 amount = 100
