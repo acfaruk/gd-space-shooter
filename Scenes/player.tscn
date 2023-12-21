@@ -1,63 +1,56 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=14 format=3 uid="uid://bxckqn6d5t02p"]
 
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/player_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/effects/info_text.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/particle.png" type="Texture2D" id=4]
-[ext_resource path="res://Sprites/playerShip1_orange.png" type="Texture2D" id=5]
-[ext_resource path="res://Audio/thruster.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Audio/crash.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Audio/pepSound1.ogg" type="AudioStream" id=8]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/player_bullet.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Scenes/effects/info_text.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://d3vhape3ohe3" path="res://Sprites/particle.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cnws0rn3owhvc" path="res://Sprites/playerShip1_orange.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://bb57hpuk4e0n3" path="res://Audio/thruster.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://boigxrsofksal" path="res://Audio/crash.ogg" id="7"]
+[ext_resource type="AudioStream" uid="uid://bjc1u44aep4hm" path="res://Audio/pepSound1.ogg" id="8"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0.136095, 0.609467, 1 )
-colors = PackedColorArray( 0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0.136095, 0.609467, 1)
+colors = PackedColorArray(0.765625, 0, 0, 1, 1, 0.990784, 0.410156, 0.707176, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0.199219 ), 0.0, -0.226279, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="3"]
+_data = [Vector2(0, 0.199219), 0.0, -0.226279, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id="4"]
+curve = SubResource("3")
 
-[sub_resource type="ParticleProcessMaterial" id=5]
-flag_disable_z = true
+[sub_resource type="ParticleProcessMaterial" id="5"]
 spread = 10.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 100.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.5
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("4")
+color_ramp = SubResource("2")
 
 [node name="player" type="RigidBody2D"]
-scale = Vector2( 0.4, 0.4 )
-mode = 3
 max_contacts_reported = 5
 contact_monitor = true
-script = ExtResource( 1 )
-bullet_scene = ExtResource( 2 )
-info_text = ExtResource( 3 )
+script = ExtResource("1")
+bullet_scene = ExtResource("2")
+info_text = ExtResource("3")
 speed = 4.5
 
 [node name="turbine_particles" type="GPUParticles2D" parent="."]
-position = Vector2( -0.467885, 40.7217 )
+position = Vector2(0, 14)
 rotation = 1.5708
 amount = 300
+process_material = SubResource("5")
+texture = ExtResource("4")
 lifetime = 0.25
-visibility_rect = Rect2( 0, 0, 0, 0 )
-local_coords = false
-process_material = SubResource( 5 )
-texture = ExtResource( 4 )
+visibility_rect = Rect2(0, 0, 0, 0)
 
 [node name="sprite" type="Sprite2D" parent="."]
-texture = ExtResource( 5 )
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5")
 
 [node name="cam" type="Camera2D" parent="."]
-current = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -66,24 +59,26 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="collision_shape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array( 6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444 )
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(6.67004, 37.0239, 12.7592, 27.1654, 41.465, 21.0762, 44.9445, 24.5558, 49.2938, -5.88971, 41.465, -0.0905762, 35.3757, 1.64923, 12.7592, -12.2687, 7.82996, -38.6548, -8.40759, -38.6548, -12.177, -13.4285, -35.9535, 1.64923, -41.1727, -0.67041, -48.4216, -7.62939, -46.1021, 24.2658, -41.7527, 19.6265, -13.337, 26.2955, -6.95789, 36.444)
 
 [node name="energy_timer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
 
 [node name="turbine_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource("6")
 autoplay = true
-bus = "sfx"
+bus = &"sfx"
 
 [node name="crash_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource("7")
 volume_db = -5.0
-bus = "sfx"
+bus = &"sfx"
 
 [node name="no_energy_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
-bus = "sfx"
+stream = ExtResource("8")
+bus = &"sfx"
+
 [connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="energy_timer" to="." method="_on_energy_timer_timeout"]

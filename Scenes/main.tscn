@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://snbqvn4mnq8"]
 
-[ext_resource type="PackedScene" path="res://Scenes/gui/hud.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b7263h8suqew7" path="res://Scenes/gui/hud.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cvlbi51mtg0qv" path="res://Sprites/back.png" id="2"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bxckqn6d5t02p" path="res://Scenes/player.tscn" id="3"]
 [ext_resource type="Script" path="res://Scripts/MeteorManager.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://cta2ufskrhoeq" path="res://Scenes/meteors/big_meteor.tscn" id="5"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="6"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwmb2qgie5uth"]
 
 [ext_resource type="Script" path="res://Scripts/Meteor.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/effects/explosion.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b63ruh5d6u0ke" path="res://Scenes/effects/explosion.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://Scenes/effects/info_text.tscn" id="3"]
 
 [node name="meteor" type="RigidBody2D"]
