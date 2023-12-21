@@ -1,170 +1,47 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://b7263h8suqew7"]
 
-[ext_resource path="res://Scripts/gui/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/hud/lifebar_bg.png" type="Texture2D" id=2]
-[ext_resource path="res://Sprites/hud/lifebar_fill.png" type="Texture2D" id=3]
-[ext_resource path="res://Sprites/hud/energy_bar_bg.png" type="Texture2D" id=4]
-[ext_resource path="res://Sprites/hud/energy_bar_fill.png" type="Texture2D" id=5]
-[ext_resource path="res://Fonts/info.tres" type="FontFile" id=6]
+[ext_resource type="Script" path="res://Scripts/gui/HUD.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dk01occjwbqxt" path="res://Sprites/hud/lifebar_bg.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bx5qyvrxro0fd" path="res://Sprites/hud/lifebar_fill.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dy7wvfl88scpt" path="res://Sprites/hud/energy_bar_bg.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://doijlgeakatd8" path="res://Sprites/hud/energy_bar_fill.png" id="5"]
+[ext_resource type="FontFile" path="res://Fonts/info.tres" id="6"]
 
 [node name="hud" type="CanvasLayer"]
+script = ExtResource("1")
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 1 )
-
-[node name="container" type="MarginContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="container" type="MarginContainer" parent="."]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.0
 offset_right = -10.0
 offset_bottom = 16.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
 mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="hbox_main" type="HBoxContainer" parent="container" index="0"]
+[node name="hbox_main" type="HBoxContainer" parent="container"]
+layout_mode = 2
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 8.0
-offset_right = 1014.0
-offset_bottom = 73.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Anchor", "Margin" ]
-
-[node name="vbox_left" type="VBoxContainer" parent="container/hbox_main" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 501.0
-offset_bottom = 73.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
+[node name="vbox_left" type="VBoxContainer" parent="container/hbox_main"]
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
-[node name="health" type="TextureProgressBar" parent="container/hbox_main/vbox_left" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 501.0
-offset_bottom = 39.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
+[node name="health" type="TextureProgressBar" parent="container/hbox_main/vbox_left"]
+layout_mode = 2
 value = 100.0
-exp_edit = false
-rounded = false
-texture_under = ExtResource( 2 )
-texture_over = null
-texture_progress = ExtResource( 3 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
-_sections_unfolded = [ "Textures" ]
+texture_under = ExtResource("2")
+texture_progress = ExtResource("3")
 
-[node name="energy" type="TextureProgressBar" parent="container/hbox_main/vbox_left" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 43.0
-offset_right = 501.0
-offset_bottom = 73.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
+[node name="energy" type="TextureProgressBar" parent="container/hbox_main/vbox_left"]
+layout_mode = 2
 value = 100.0
-exp_edit = false
-rounded = false
-texture_under = ExtResource( 4 )
-texture_over = null
-texture_progress = ExtResource( 5 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
-_sections_unfolded = [ "Textures" ]
+texture_under = ExtResource("4")
+texture_progress = ExtResource("5")
 
-[node name="vbox_right" type="VBoxContainer" parent="container/hbox_main" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 505.0
-offset_right = 1006.0
-offset_bottom = 73.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
+[node name="vbox_right" type="VBoxContainer" parent="container/hbox_main"]
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="score" type="Label" parent="container/hbox_main/vbox_right" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 501.0
-offset_bottom = 19.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource( 6 )
+[node name="score" type="Label" parent="container/hbox_main/vbox_right"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6")
 text = "0"
-align = 2
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts", "custom_styles" ]
-
-

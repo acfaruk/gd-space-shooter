@@ -1,163 +1,59 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://c326ejvnf5hvc"]
 
-[ext_resource path="res://Scripts/gui/GameOver.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/headings.tres" type="FontFile" id=2]
-[ext_resource path="res://Fonts/info.tres" type="FontFile" id=3]
+[ext_resource type="Script" path="res://Scripts/gui/GameOver.gd" id="1"]
+[ext_resource type="FontFile" path="res://Fonts/headings.tres" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/info.tres" id="3"]
 
 [node name="game_over" type="CanvasLayer"]
-
 process_mode = 3
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+script = ExtResource("1")
 
-[node name="background" type="ColorRect" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0, 0, 0, 0.588235 )
+color = Color(0, 0, 0, 0.588235)
 
-[node name="container" type="CenterContainer" parent="." index="1"]
-
+[node name="container" type="CenterContainer" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.0
-offset_top = -23.0
-offset_right = 118.0
-offset_bottom = 70.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
+offset_left = -200.0
+offset_top = -56.0
+offset_right = 200.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
 
-[node name="vbox" type="VBoxContainer" parent="container" index="0"]
+[node name="vbox" type="VBoxContainer" parent="container"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 236.0
-offset_bottom = 117.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="game_over" type="Label" parent="container/vbox" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 236.0
-offset_bottom = 46.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource( 2 )
+[node name="game_over" type="Label" parent="container/vbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 39
 text = "Game Over"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="score" type="Label" parent="container/vbox" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 50.0
-offset_right = 236.0
-offset_bottom = 69.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource( 3 )
+[node name="score" type="Label" parent="container/vbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Your Score: 0"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="restart" type="Button" parent="container/vbox" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 73.0
-offset_right = 236.0
-offset_bottom = 93.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-focus_mode = 2
-shortcut = null
-group = null
+[node name="restart" type="Button" parent="container/vbox"]
+layout_mode = 2
 text = "Restart"
-flat = false
-align = 1
 
-[node name="quit" type="Button" parent="container/vbox" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 97.0
-offset_right = 236.0
-offset_bottom = 117.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-focus_mode = 2
-shortcut = null
-group = null
+[node name="quit" type="Button" parent="container/vbox"]
+layout_mode = 2
 text = "Quit"
-flat = false
-align = 1
 
 [connection signal="pressed" from="container/vbox/restart" to="." method="_on_restart_pressed"]
-
 [connection signal="pressed" from="container/vbox/quit" to="." method="_on_quit_pressed"]
-
-

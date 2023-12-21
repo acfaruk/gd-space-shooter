@@ -1,172 +1,63 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://h2aqdd0xk6qs"]
 
-[ext_resource path="res://Scripts/gui/Pause.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/headings.tres" type="FontFile" id=2]
-[ext_resource path="res://Scenes/gui/settings_sub.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://Scripts/gui/Pause.gd" id="1"]
+[ext_resource type="FontFile" path="res://Fonts/headings.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dck8xg0ihkr0d" path="res://Scenes/gui/settings_sub.tscn" id="3"]
 
 [node name="pause" type="CanvasLayer"]
-
 process_mode = 3
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+script = ExtResource("1")
 
-[node name="background" type="ColorRect" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0, 0, 0, 0.588235 )
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
 
-[node name="menu" type="CenterContainer" parent="." index="1"]
-
+[node name="menu" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.0
-offset_top = -23.0
-offset_right = 118.0
-offset_bottom = 70.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
+offset_left = -200.0
+offset_top = -62.0
+offset_right = 200.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
 
-[node name="vbox" type="VBoxContainer" parent="menu" index="0"]
+[node name="vbox" type="VBoxContainer" parent="menu"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 41.0
-offset_right = 195.0
-offset_bottom = 118.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="game_over" type="Label" parent="menu/vbox" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 154.0
-offset_bottom = 46.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource( 2 )
+[node name="game_over" type="Label" parent="menu/vbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 39
 text = "Paused"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="resume" type="Button" parent="menu/vbox" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 50.0
-offset_right = 154.0
-offset_bottom = 70.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-focus_mode = 2
-shortcut = null
-group = null
+[node name="resume" type="Button" parent="menu/vbox"]
+layout_mode = 2
 text = "Resume"
-flat = false
-align = 1
 
-[node name="settings" type="Button" parent="menu/vbox" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 74.0
-offset_right = 154.0
-offset_bottom = 94.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-focus_mode = 2
-shortcut = null
-group = null
+[node name="settings" type="Button" parent="menu/vbox"]
+layout_mode = 2
 text = "Settings"
-flat = false
-align = 1
 
-[node name="quit" type="Button" parent="menu/vbox" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 98.0
-offset_right = 154.0
-offset_bottom = 118.0
-pivot_offset = Vector2( 0, 0 )
-clip_contents = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-focus_mode = 2
-shortcut = null
-group = null
+[node name="quit" type="Button" parent="menu/vbox"]
+layout_mode = 2
 text = "Quit"
-flat = false
-align = 1
 
-[node name="settings_sub" parent="." index="2" instance=ExtResource( 3 )]
-
+[node name="settings_sub" parent="." instance=ExtResource("3")]
 visible = false
-_sections_unfolded = [ "Visibility" ]
 
 [connection signal="pressed" from="menu/vbox/resume" to="." method="_on_resume_pressed"]
-
 [connection signal="pressed" from="menu/vbox/settings" to="." method="_on_settings_pressed"]
-
 [connection signal="pressed" from="menu/vbox/quit" to="." method="_on_quit_pressed"]
-
-

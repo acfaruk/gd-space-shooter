@@ -7,3 +7,6 @@ res://Scripts/MeteorManager.gd
 res://Scenes/meteors/meteor.tscn
 res://Scenes/meteors/big_meteor.tscn
 res://Scenes/gui/settings_sub.tscn
+res://Scenes/gui/game_over.tscn
+res://Scenes/gui/pause.tscn
+res://Scenes/gui/hud.tscn
